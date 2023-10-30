@@ -1,0 +1,27 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package ec.edu.espol.proyecto_edd;
+
+/**
+ *
+ * @author nicolassierra
+ */
+public abstract class agregarInformacion{
+    private Contacto contacto;
+
+    
+    public static void addCorreoToLinkedList(Contacto contacto, Correo correo) {
+        contacto.getCorreos().add(correo);
+    }
+
+    public static void addDireccionToLinkedList(Contacto contacto, Direccion direccion) {
+        contacto.getDirecciones().add(direccion);
+    }
+    
+
+   
+   
+    
+}
