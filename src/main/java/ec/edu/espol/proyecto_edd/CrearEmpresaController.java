@@ -9,6 +9,7 @@ import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 
 /**
@@ -21,15 +22,21 @@ public class CrearEmpresaController implements Initializable {
     @FXML
     private TextField nametext;
     @FXML
-    private TextField usernametext;
-    @FXML
     private TextField emailtext;
     @FXML
-    private TextField organizaciontext;
+    private TextField numbertext;
     @FXML
-    private TextField organizaciontext1;
+    private TextField directiontext;
     @FXML
-    private TextField organizaciontext2;
+    private TextField datetext1;
+    @FXML
+    private TextField relatedContactstext2;
+    @FXML
+    private ImageView imagen;
+    @FXML
+    private TextField dateTypetext11;
+    @FXML
+    private TextField relationshiptext;
 
     /**
      * Initializes the controller class.
@@ -40,11 +47,15 @@ public class CrearEmpresaController implements Initializable {
     }    
 
     @FXML
-    private void registrarusuario(MouseEvent event) {
+    private void createContact(MouseEvent event) {
     }
 
     @FXML
-    private void loginvolver(MouseEvent event) {
+    private void back(MouseEvent event) {
+    }
+
+    @FXML
+    private void chooseFile(MouseEvent event) {
     }
     
 }

@@ -45,20 +45,22 @@ public class EditContactController implements Initializable {
         // TODO
     }    
 
-    @FXML
-    private void editContact(MouseEvent event) {
-    }
 
     @FXML
     private void back(MouseEvent event) {
     }
 
-    @FXML
-    private void watchGalery(MouseEvent event) {
-    }
 
     @FXML
     private void agregarImagen(MouseEvent event) {
+    }
+
+    @FXML
+    private void SaveContact(MouseEvent event) {
+    }
+
+    @FXML
+    private void addPhoto(MouseEvent event) {
     }
     
 }

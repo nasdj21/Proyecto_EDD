@@ -8,9 +8,11 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 
 /**
@@ -33,9 +35,9 @@ public class CrearUsuarioController implements Initializable {
     @FXML
     private TextField datetext1;
     @FXML
-    private TextField relatedcontactstext2;
+    private ImageView imageId;
     @FXML
-    private TextField relationshiptext;
+    private ComboBox<?> relatedcontacts;
 
     /**
      * Initializes the controller class.
@@ -45,12 +47,17 @@ public class CrearUsuarioController implements Initializable {
         // TODO
     }    
 
+
     @FXML
-    private void registrarusuario(MouseEvent event) {
+    private void back(MouseEvent event) {
     }
 
     @FXML
-    private void loginvolver(MouseEvent event) {
+    private void editContact(MouseEvent event) {
+    }
+
+    @FXML
+    private void watchGalery(MouseEvent event) {
     }
     
 }

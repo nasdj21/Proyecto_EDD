@@ -20,15 +20,13 @@ import javafx.scene.input.MouseEvent;
 public class SeleccionarTipoContactoController implements Initializable {
 
     @FXML
-    private Button login;
-    @FXML
-    private Button signUp;
-    @FXML
     private ImageView imagenUsuario;
     @FXML
     private ImageView imagenLocker;
     @FXML
-    private Button login1;
+    private Button bussinessContact;
+    @FXML
+    private Button normalContact;
 
     /**
      * Initializes the controller class.
@@ -44,6 +42,10 @@ public class SeleccionarTipoContactoController implements Initializable {
 
     @FXML
     private void SignUp(MouseEvent event) {
+    }
+
+    @FXML
+    private void back(MouseEvent event) {
     }
     
 }

@@ -24,8 +24,6 @@ public class MostrarGaleríaController implements Initializable {
     @FXML
     private Button signUp;
     @FXML
-    private ImageView imagenLocker;
-    @FXML
     private Button login1;
 
     /**
@@ -37,11 +35,15 @@ public class MostrarGaleríaController implements Initializable {
     }    
 
     @FXML
-    private void Login(MouseEvent event) {
+    private void prev(MouseEvent event) {
     }
 
     @FXML
-    private void SignUp(MouseEvent event) {
+    private void back(MouseEvent event) {
+    }
+
+    @FXML
+    private void next(MouseEvent event) {
     }
     
 }

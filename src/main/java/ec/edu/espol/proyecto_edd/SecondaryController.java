@@ -11,15 +11,15 @@ public class SecondaryController {
     }
 
     @FXML
-    private void home(MouseEvent event) {
+    private void filtrar(MouseEvent event) {
     }
 
     @FXML
-    private void registrarVehiculo(MouseEvent event) {
+    private void ordenar(MouseEvent event) {
     }
 
     @FXML
-    private void ofertarVehiculo(MouseEvent event) {
+    private void crearContacto(MouseEvent event) {
     }
 }
 
