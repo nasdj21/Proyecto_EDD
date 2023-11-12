@@ -8,8 +8,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.PasswordField;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -19,20 +18,24 @@ import javafx.scene.input.MouseEvent;
  *
  * @author JOSUE
  */
-public class PrimaryController implements Initializable {
+public class EditContactController implements Initializable {
 
     @FXML
-    private Button login;
+    private TextField nametext;
     @FXML
-    private Button signUp;
+    private TextField lastnametext;
     @FXML
-    private ImageView imagenUsuario;
+    private TextField numbertext;
     @FXML
-    private ImageView imagenLocker;
+    private TextField emailtext;
     @FXML
-    private TextField user;
+    private TextField directiontext;
     @FXML
-    private PasswordField password;
+    private TextField datetext1;
+    @FXML
+    private ImageView imageId;
+    @FXML
+    private ComboBox<?> relatedcontacts;
 
     /**
      * Initializes the controller class.
@@ -43,11 +46,19 @@ public class PrimaryController implements Initializable {
     }    
 
     @FXML
-    private void Login(MouseEvent event) {
+    private void editContact(MouseEvent event) {
     }
 
     @FXML
-    private void SignUp(MouseEvent event) {
+    private void back(MouseEvent event) {
+    }
+
+    @FXML
+    private void watchGalery(MouseEvent event) {
+    }
+
+    @FXML
+    private void agregarImagen(MouseEvent event) {
     }
     
 }

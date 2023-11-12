@@ -8,10 +8,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 
 /**
@@ -19,20 +16,20 @@ import javafx.scene.input.MouseEvent;
  *
  * @author JOSUE
  */
-public class PrimaryController implements Initializable {
+public class CrearEmpresaController implements Initializable {
 
     @FXML
-    private Button login;
+    private TextField nametext;
     @FXML
-    private Button signUp;
+    private TextField usernametext;
     @FXML
-    private ImageView imagenUsuario;
+    private TextField emailtext;
     @FXML
-    private ImageView imagenLocker;
+    private TextField organizaciontext;
     @FXML
-    private TextField user;
+    private TextField organizaciontext1;
     @FXML
-    private PasswordField password;
+    private TextField organizaciontext2;
 
     /**
      * Initializes the controller class.
@@ -43,11 +40,11 @@ public class PrimaryController implements Initializable {
     }    
 
     @FXML
-    private void Login(MouseEvent event) {
+    private void registrarusuario(MouseEvent event) {
     }
 
     @FXML
-    private void SignUp(MouseEvent event) {
+    private void loginvolver(MouseEvent event) {
     }
     
 }

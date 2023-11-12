@@ -9,8 +9,6 @@ import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 
@@ -19,7 +17,7 @@ import javafx.scene.input.MouseEvent;
  *
  * @author JOSUE
  */
-public class PrimaryController implements Initializable {
+public class SeleccionarTipoContactoController implements Initializable {
 
     @FXML
     private Button login;
@@ -30,9 +28,7 @@ public class PrimaryController implements Initializable {
     @FXML
     private ImageView imagenLocker;
     @FXML
-    private TextField user;
-    @FXML
-    private PasswordField password;
+    private Button login1;
 
     /**
      * Initializes the controller class.
