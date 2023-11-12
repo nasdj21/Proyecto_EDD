@@ -8,10 +8,18 @@ package ec.edu.espol.proyecto_edd;
  *
  * @author nicolassierra
  */
-class Foto {
+public class Foto {
     public String direccion;
 
     public Foto(String direccion) {
+        this.direccion = direccion;
+    }
+
+    public String getDireccion() {
+        return direccion;
+    }
+
+    public void setDireccion(String direccion) {
         this.direccion = direccion;
     }
     

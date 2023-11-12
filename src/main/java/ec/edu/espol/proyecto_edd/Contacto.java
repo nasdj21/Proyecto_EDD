@@ -24,15 +24,23 @@ public class Contacto implements Serializable{
     private ArrayList<Correo> correos;
     private LinkedList<Foto> fotos;
     private ArrayList<Direccion> direcciones;
+    private ArrayList<Recordatorio> recordatorios;
+    private ContactoAsociado contactoAsociado;
 
-    public Contacto(String nombres, String apellidos, int numero, ArrayList<Correo> correos, LinkedList<Foto> fotos, ArrayList<Direccion> direcciones) {
+    public Contacto(String nombres, String apellidos, int numero, ArrayList<Correo> correos, LinkedList<Foto> fotos, ArrayList<Direccion> direcciones, ArrayList<Recordatorio> recordatorios, ContactoAsociado contactoAsociado) {
         this.nombres = nombres;
         this.apellidos = apellidos;
         this.numero = numero;
         this.correos = correos;
         this.fotos = fotos;
         this.direcciones = direcciones;
+        this.recordatorios = recordatorios;
+        this.contactoAsociado = contactoAsociado;
     }
+
+    
+
+    
     
     public Contacto(String nombres, String apellidos, int numero) {
         this.nombres = nombres;
