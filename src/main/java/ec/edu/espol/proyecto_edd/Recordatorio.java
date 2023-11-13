@@ -4,11 +4,13 @@
  */
 package ec.edu.espol.proyecto_edd;
 
+import java.io.Serializable;
+
 /**
  *
  * @author nicolassierra
  */
-public class Recordatorio {
+public class Recordatorio implements Serializable {
     private String date;
     private String label;
 

@@ -4,11 +4,13 @@
  */
 package ec.edu.espol.proyecto_edd;
 
+import java.io.Serializable;
+
 /**
  *
  * @author nicolassierra
  */
-public abstract class agregarInformacion{
+public abstract class agregarInformacion implements Serializable{
     private Contacto contacto;
 
     
