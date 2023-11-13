@@ -59,5 +59,6 @@ public class CrearUsuarioController implements Initializable {
     @FXML
     private void watchGalery(MouseEvent event) {
     }
+
     
 }
