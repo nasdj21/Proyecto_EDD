@@ -33,9 +33,12 @@ public class SecondaryController implements Initializable {
     
     private ArrayList<Contacto>contactos;
     
+    
     public void setContactos(ArrayList<Contacto>contactos){
         this.contactos = contactos;
     }
+    
+    
      
     
     
@@ -101,6 +104,7 @@ public class SecondaryController implements Initializable {
             
             verController.show(table.getSelectionModel().getSelectedItem());
             verController.setContactos(contactos);
+            verController.setContacto(table.getSelectionModel().getSelectedItem());
             
             Scene scene = new Scene(root);
             Stage stage = (Stage) filtrarButton.getScene().getWindow(); 

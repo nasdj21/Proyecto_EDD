@@ -13,9 +13,11 @@ import java.util.LinkedList;
  */
 public class ContactoEmpresa extends Contacto{
     
-    public ContactoEmpresa(String nombres, String apellidos, String numero, ArrayList<Correo> correos, LinkedList<Foto> fotos, ArrayList<Direccion> direcciones, ArrayList<Recordatorio> recordatorios, ArrayList<ContactoAsociado> contactoAsociado) {
+    public ContactoEmpresa(String nombres, String apellidos, String numero, ArrayList<Correo> correos, LinkedList<Foto> fotos, ArrayList<Direccion> direcciones, ArrayList<Recordatorio> recordatorios, ContactoAsociado contactoAsociado) {
         super(nombres, apellidos, numero, correos, fotos, direcciones, recordatorios, contactoAsociado);
     }
+    
+    
     
     
     

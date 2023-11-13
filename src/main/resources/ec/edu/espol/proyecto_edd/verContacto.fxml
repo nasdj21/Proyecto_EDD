@@ -115,7 +115,7 @@
                               <Image url="@../../../../img/Imagen3.jpg" />
                            </image>
                         </ImageView>
-                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#watchGalery" prefHeight="44.0" prefWidth="183.0" style="-fx-background-color: #9A031E;" text="Watch Galery" textAlignment="CENTER" textFill="#fcdc4d">
+                        <Button fx:id="watchgalleryButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#watchGalery" prefHeight="44.0" prefWidth="183.0" style="-fx-background-color: #9A031E;" text="Watch Gallery" textAlignment="CENTER" textFill="#fcdc4d">
                            <font>
                               <Font name="Baskerville Old Face" size="24.0" />
                            </font>

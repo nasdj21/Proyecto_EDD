@@ -29,7 +29,7 @@
             <Insets top="20.0" />
          </GridPane.margin>
       </Label>
-      <Button fx:id="login" mnemonicParsing="false" onMouseClicked="#prev" prefHeight="54.0" prefWidth="290.0" style="-fx-background-color: #9A031E; -fx-text-fill: #FCDC4D;" text="&lt;" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+      <Button fx:id="previousButton" mnemonicParsing="false" onMouseClicked="#prev" prefHeight="54.0" prefWidth="290.0" style="-fx-background-color: #9A031E; -fx-text-fill: #FCDC4D;" text="&lt;" GridPane.halignment="CENTER" GridPane.rowIndex="1">
          <font>
             <Font name="Baskerville Old Face" size="22.0" />
          </font>
@@ -37,7 +37,7 @@
             <Insets top="90.0" />
          </GridPane.margin>
       </Button>
-      <Button fx:id="login1" mnemonicParsing="false" onMouseClicked="#back" prefHeight="0.0" prefWidth="121.0" style="-fx-background-color: #9A031E; -fx-text-fill: #FCDC4D;" text="Go Back" GridPane.halignment="LEFT" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
+      <Button fx:id="backButton" mnemonicParsing="false" onMouseClicked="#back" prefHeight="0.0" prefWidth="121.0" style="-fx-background-color: #9A031E; -fx-text-fill: #FCDC4D;" text="Go Back" GridPane.halignment="LEFT" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
          <font>
             <Font name="Baskerville Old Face" size="16.0" />
          </font>
@@ -45,7 +45,7 @@
             <Insets top="10.0" />
          </GridPane.margin>
       </Button>
-      <Button fx:id="signUp" mnemonicParsing="false" onMouseClicked="#next" prefHeight="54.0" prefWidth="296.0" style="-fx-background-color: #9A031E; -fx-text-fill: #FCDC4D;" text="&gt;" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+      <Button fx:id="nextButton" mnemonicParsing="false" onMouseClicked="#next" prefHeight="54.0" prefWidth="296.0" style="-fx-background-color: #9A031E; -fx-text-fill: #FCDC4D;" text="&gt;" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1">
          <font>
             <Font name="Baskerville Old Face" size="22.0" />
          </font>
@@ -53,6 +53,6 @@
             <Insets top="90.0" />
          </GridPane.margin>
       </Button>
-      <ImageView fitHeight="290.0" fitWidth="331.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+      <ImageView fx:id="imagepanel" fitHeight="290.0" fitWidth="331.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
    </children>
 </GridPane>

@@ -61,9 +61,17 @@ public class VerContactoController implements Initializable {
     private Button editButton;
     @FXML
     private Button backButton;
+    @FXML
+    private Button watchgalleryButton;
+    
+    private Contacto contacto;
     
     public void setContactos(ArrayList<Contacto>contactos){
         this.contactos = contactos;
+    }
+    
+    public void setContacto(Contacto c){
+        this.contacto = c;
     }
 
     /**
@@ -151,6 +159,24 @@ public class VerContactoController implements Initializable {
 
     @FXML
     private void watchGalery(MouseEvent event) {
+        try{
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/ec/edu/espol/proyecto_EDD/mostrarGalería.fxml"));
+            Parent root = loader.load();
+            
+            MostrarGaleríaController mostrarController = loader.getController();
+            
+            mostrarController.presentar(contacto.getFotos());
+            mostrarController.setContactos(contactos);
+            mostrarController.setContacto(contacto);
+            
+            Scene scene = new Scene(root);
+            Stage stage = (Stage) backButton.getScene().getWindow(); 
+            stage.setScene(scene);
+            stage.show();
+            
+        }catch(IOException e) {
+            e.printStackTrace();
+        }
     }
     
 }
