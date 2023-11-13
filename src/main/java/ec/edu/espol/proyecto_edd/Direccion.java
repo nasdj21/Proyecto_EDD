@@ -4,11 +4,13 @@
  */
 package ec.edu.espol.proyecto_edd;
 
+import java.io.Serializable;
+
 /**
  *
  * @author nicolassierra
  */
-public class Direccion {
+public class Direccion implements Serializable{
     private String label;
     private String direccion;
 

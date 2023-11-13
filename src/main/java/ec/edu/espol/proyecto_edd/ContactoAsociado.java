@@ -4,11 +4,13 @@
  */
 package ec.edu.espol.proyecto_edd;
 
+import java.io.Serializable;
+
 /**
  *
  * @author nicolassierra
  */
-public class ContactoAsociado {
+public class ContactoAsociado implements Serializable{
     private String nombre;
     private String relacion;
 

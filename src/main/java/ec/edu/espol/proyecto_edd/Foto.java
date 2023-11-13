@@ -4,11 +4,13 @@
  */
 package ec.edu.espol.proyecto_edd;
 
+import java.io.Serializable;
+
 /**
  *
  * @author nicolassierra
  */
-public class Foto {
+public class Foto implements Serializable{
     public String direccion;
 
     public Foto(String direccion) {

@@ -20,14 +20,14 @@ import java.util.LinkedList;
 public class Contacto implements Serializable{
     private String nombres;
     private String apellidos;
-    private int numero;
+    private String numero;
     private ArrayList<Correo> correos;
     private LinkedList<Foto> fotos;
     private ArrayList<Direccion> direcciones;
     private ArrayList<Recordatorio> recordatorios;
     private ContactoAsociado contactoAsociado;
 
-    public Contacto(String nombres, String apellidos, int numero, ArrayList<Correo> correos, LinkedList<Foto> fotos, ArrayList<Direccion> direcciones, ArrayList<Recordatorio> recordatorios, ContactoAsociado contactoAsociado) {
+    public Contacto(String nombres, String apellidos, String numero, ArrayList<Correo> correos, LinkedList<Foto> fotos, ArrayList<Direccion> direcciones, ArrayList<Recordatorio> recordatorios, ContactoAsociado contactoAsociado) {
         this.nombres = nombres;
         this.apellidos = apellidos;
         this.numero = numero;
@@ -42,13 +42,23 @@ public class Contacto implements Serializable{
 
     
     
-    public Contacto(String nombres, String apellidos, int numero) {
+    public Contacto(String nombres, String apellidos, String numero) {
         this.nombres = nombres;
         this.apellidos = apellidos;
         this.numero = numero;
         this.correos = new ArrayList<Correo>();
         this.fotos = new LinkedList<Foto>();
         this.direcciones = new ArrayList<Direccion>();
+        this.recordatorios = new ArrayList<Recordatorio>();
+    }
+    
+    public Contacto(String nombres, String numero) {
+        this.nombres = nombres;
+        this.numero = numero;
+        this.correos = new ArrayList<Correo>();
+        this.fotos = new LinkedList<Foto>();
+        this.direcciones = new ArrayList<Direccion>();
+        this.recordatorios = new ArrayList<Recordatorio>();
     }
 
 
@@ -68,11 +78,11 @@ public class Contacto implements Serializable{
         this.apellidos = apellidos;
     }
 
-    public int getNumero() {
+    public String getNumero() {
         return numero;
     }
 
-    public void setNumero(int numero) {
+    public void setNumero(String numero) {
         this.numero = numero;
     }
 
@@ -99,6 +109,24 @@ public class Contacto implements Serializable{
     public void setDirecciones(ArrayList<Direccion> direcciones) {
         this.direcciones = direcciones;
     }
+
+    public ArrayList<Recordatorio> getRecordatorios() {
+        return recordatorios;
+    }
+
+    public void setRecordatorios(ArrayList<Recordatorio> recordatorios) {
+        this.recordatorios = recordatorios;
+    }
+
+    public ContactoAsociado getContactoAsociado() {
+        return contactoAsociado;
+    }
+
+    public void setContactoAsociado(ContactoAsociado contactoAsociado) {
+        this.contactoAsociado = contactoAsociado;
+    }
+    
+    
 
     public static ArrayList<Contacto> readListFromFileSer() {
         ArrayList<Contacto> contactos = new ArrayList<>();
