@@ -30,7 +30,7 @@
             <Insets top="50.0" />
          </GridPane.margin>
       </Label>
-      <Button fx:id="bussinessContact" mnemonicParsing="false" onMouseClicked="#Login" prefHeight="54.0" prefWidth="290.0" style="-fx-background-color: #9A031E; -fx-text-fill: #FCDC4D;" text="Business Contact" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+      <Button fx:id="bussinessContact" mnemonicParsing="false" onMouseClicked="#bussinesscontact" prefHeight="54.0" prefWidth="290.0" style="-fx-background-color: #9A031E; -fx-text-fill: #FCDC4D;" text="Business Contact" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1">
          <font>
             <Font name="Baskerville Old Face" size="22.0" />
          </font>
@@ -38,7 +38,7 @@
             <Insets top="50.0" />
          </GridPane.margin>
       </Button>
-      <Button fx:id="normalContact" mnemonicParsing="false" onMouseClicked="#SignUp" prefHeight="54.0" prefWidth="296.0" style="-fx-background-color: #9A031E; -fx-text-fill: #FCDC4D;" text="Normal Contact" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+      <Button fx:id="normalContact" mnemonicParsing="false" onMouseClicked="#normalcontact" prefHeight="54.0" prefWidth="296.0" style="-fx-background-color: #9A031E; -fx-text-fill: #FCDC4D;" text="Normal Contact" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2">
          <font>
             <Font name="Baskerville Old Face" size="22.0" />
          </font>
