@@ -84,7 +84,7 @@ public class VerContactoController implements Initializable {
 
     public void show(Contacto c){
         if(!c.getFotos().isEmpty()){
-           String nombreImagen = c.getFotos().getFirst().getDireccion() + ".png";
+           String nombreImagen = c.getFotos().getFirst().getDireccion();
             Image perfil = new Image("/img/"+nombreImagen);
             imageId.setImage(perfil); 
         }

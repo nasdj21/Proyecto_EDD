@@ -99,7 +99,7 @@ public class MostrarGaleríaController implements Initializable {
     }
     
     public void mostrarImagenActual(){
-        String nombreImagen = fotos.get(indiceActual).getDireccion() + ".png";
+        String nombreImagen = fotos.get(indiceActual).getDireccion();
         Image imagen = new Image("/img/" + nombreImagen);
         imagepanel.setImage(imagen);
     }

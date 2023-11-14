@@ -49,12 +49,12 @@ public class SecondaryController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         ArrayList<Contacto>contactos1 = Contacto.readListFromFileSer();
         LinkedList<Foto>lfotosc1 = new LinkedList<>();
-        Foto fotoc11 = new Foto("man");
+        Foto fotoc11 = new Foto("man.png");
         lfotosc1.add(fotoc11);
         
         LinkedList<Foto>lfotosc2 = new LinkedList<>();
-        Foto fotoc21 = new Foto("woman");
-        Foto fotoc22 = new Foto("woman2");
+        Foto fotoc21 = new Foto("woman.png");
+        Foto fotoc22 = new Foto("woman2.png");
         lfotosc2.add(fotoc21);
         lfotosc2.add(fotoc22);
         
