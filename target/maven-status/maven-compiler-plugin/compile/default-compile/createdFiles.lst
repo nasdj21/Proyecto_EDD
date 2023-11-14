@@ -1,15 +1,4 @@
-<<<<<<< HEAD
-ec\edu\espol\proyecto_edd\Correo.class
-ec\edu\espol\proyecto_edd\PrimaryController.class
+ec/edu/espol/proyecto_edd/ContactoEmpresa.class
+ec/edu/espol/proyecto_edd/ContactoAsociado.class
 module-info.class
-ec\edu\espol\proyecto_edd\SecondaryController.class
-ec\edu\espol\proyecto_edd\Foto.class
-ec\edu\espol\proyecto_edd\App.class
-TDA\CDLinkedList.class
-TDA\G11List.class
-ec\edu\espol\proyecto_edd\Direccion.class
-ec\edu\espol\proyecto_edd\Contacto.class
-ec\edu\espol\proyecto_edd\agregarInformacion.class
-=======
-module-info.class
->>>>>>> 0004191fb95caa2efb0186dc180998aa0e1bbea4
+ec/edu/espol/proyecto_edd/Recordatorio.class
