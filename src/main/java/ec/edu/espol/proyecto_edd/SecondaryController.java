@@ -47,7 +47,7 @@ public class SecondaryController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        ArrayList<Contacto>contactos1 = new ArrayList<>();
+        ArrayList<Contacto>contactos1 = Contacto.readListFromFileSer();
         LinkedList<Foto>lfotosc1 = new LinkedList<>();
         Foto fotoc11 = new Foto("man");
         lfotosc1.add(fotoc11);
@@ -101,6 +101,23 @@ public class SecondaryController implements Initializable {
 
     @FXML
     private void crearContacto(MouseEvent event) {
+        //cargar pantalla del nuevo contacto
+        try {
+            
+            Button b = (Button)event.getSource();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/ec/edu/espol/proyecto_edd/seleccionarTipoContacto.fxml"));
+            Parent root = loader.load();
+            SeleccionarTipoContactoController controlador = loader.getController();
+
+            // Pasa el usuario al controlador de cambio de clave            
+
+            Scene scene = new Scene(root);
+            Stage stage = (Stage) b.getScene().getWindow(); 
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            System.out.println("Error");
+        }
     }
 
     @FXML

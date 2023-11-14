@@ -140,12 +140,7 @@ public class CrearUsuarioController implements Initializable {
         //nota: validar que al agregar la foto se tenga en cuenta el directorio y no solo el nombre de la imagen
         fotos.add(fotoAgregar);
         
-        Contacto contactoAgregar = new Contacto(nametext.getText(), lastnametext.getText(), numbertext.getText(), 
-                correosAgregar, 
-                fotos, 
-                direccionAgregar, 
-                recordatorios, 
-                contAsoc);
+        Contacto contactoAgregar = new Contacto(nametext.getText(), lastnametext.getText(), numbertext.getText(),correosAgregar, fotos,direccionAgregar, recordatorios, contAsoc);
         
         
         contactoAgregar.saveSer();
