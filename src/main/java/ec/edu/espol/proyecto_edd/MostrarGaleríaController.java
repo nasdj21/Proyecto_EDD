@@ -14,10 +14,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-<<<<<<< HEAD
-=======
 import javafx.scene.control.Alert;
->>>>>>> 0004191fb95caa2efb0186dc180998aa0e1bbea4
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -75,36 +72,14 @@ public class MostrarGaleríaController implements Initializable {
         }
     }
 
-<<<<<<< HEAD
-    @FXML
-    private void back(MouseEvent event) {
-        try {
-            
-            Button b = (Button)event.getSource();
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/ec/edu/espol/proyecto_edd/verContacto.fxml"));
-            Parent root = loader.load();
-            VerContactoController controlador = loader.getController();
-
-            // Pasa el usuario al controlador de cambio de clave            
-
-            Scene scene = new Scene(root);
-            Stage stage = (Stage) b.getScene().getWindow(); 
-            stage.setScene(scene);
-            stage.show();
-        } catch (IOException e) {
-            System.out.println("Error");
-        }
-    }
-=======
     
->>>>>>> 0004191fb95caa2efb0186dc180998aa0e1bbea4
 
     @FXML
     private void next(MouseEvent event) {
         if (fotos.size() > 1) {
             indiceActual = (indiceActual + 1) % fotos.size();
             mostrarImagenActual();
-        }{
+        }else{
             Alert alerta = new Alert(Alert.AlertType.WARNING, "No hay más imagenes");
             alerta.show();
         }

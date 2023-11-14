@@ -10,17 +10,16 @@ import java.io.Serializable;
  *
  * @author nicolassierra
  */
-<<<<<<< HEAD
 public class Foto implements Serializable {
-=======
-public class Foto implements Serializable{
->>>>>>> 0004191fb95caa2efb0186dc180998aa0e1bbea4
     public String direccion;
 
     public Foto(String direccion) {
         this.direccion = direccion;
     }
 
+    public Foto() {
+        this.direccion = direccion;
+    }    
     public String getDireccion() {
         return direccion;
     }

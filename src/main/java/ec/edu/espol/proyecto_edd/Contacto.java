@@ -61,14 +61,6 @@ public class Contacto implements Serializable{
         this.recordatorios = new ArrayList<Recordatorio>();
     }
 
-    public Contacto(String nombres, String numero) {
-        this.nombres = nombres;
-        this.numero = numero;
-        this.correos = new ArrayList<Correo>();
-        this.fotos = new LinkedList<Foto>();
-        this.direcciones = new ArrayList<Direccion>();
-    }
-
     
     
 

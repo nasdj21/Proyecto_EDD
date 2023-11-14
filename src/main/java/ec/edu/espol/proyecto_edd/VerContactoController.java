@@ -4,11 +4,8 @@
  */
 package ec.edu.espol.proyecto_edd;
 
-<<<<<<< HEAD
-=======
 import ec.edu.espol.proyecto_edd.Contacto;
 import ec.edu.espol.proyecto_edd.ContactoEmpresa;
->>>>>>> 0004191fb95caa2efb0186dc180998aa0e1bbea4
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -20,13 +17,9 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
-<<<<<<< HEAD
-import javafx.scene.control.TextField;
-=======
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
->>>>>>> 0004191fb95caa2efb0186dc180998aa0e1bbea4
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
@@ -53,9 +46,6 @@ public class VerContactoController implements Initializable {
     @FXML
     private ImageView imageId;
     @FXML
-<<<<<<< HEAD
-    private ComboBox<?> relatedcontacts;
-=======
     private ComboBox<String> relatedcontacts;
     @FXML
     private Label numberLabel;
@@ -83,7 +73,6 @@ public class VerContactoController implements Initializable {
     public void setContacto(Contacto c){
         this.contacto = c;
     }
->>>>>>> 0004191fb95caa2efb0186dc180998aa0e1bbea4
 
     /**
      * Initializes the controller class.
@@ -91,9 +80,6 @@ public class VerContactoController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-<<<<<<< HEAD
-    }    
-=======
     }
 
     public void show(Contacto c){
@@ -143,7 +129,6 @@ public class VerContactoController implements Initializable {
                     c.getContactoAsociado().getNombre() + " : " + c.getContactoAsociado().getRelacion());
         }
     }
->>>>>>> 0004191fb95caa2efb0186dc180998aa0e1bbea4
 
     @FXML
     private void editContact(MouseEvent event) {
@@ -151,24 +136,6 @@ public class VerContactoController implements Initializable {
 
     @FXML
     private void back(MouseEvent event) {
-<<<<<<< HEAD
-        try {
-            
-            Button b = (Button)event.getSource();
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/ec/edu/espol/proyecto_edd/secondary.fxml"));
-            Parent root = loader.load();
-            SecondaryController controlador = loader.getController();
-
-            // Pasa el usuario al controlador de cambio de clave            
-
-            Scene scene = new Scene(root);
-            Stage stage = (Stage) b.getScene().getWindow(); 
-            stage.setScene(scene);
-            stage.show();
-        } catch (IOException e) {
-            System.out.println("Error");
-        }
-=======
         try{
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/ec/edu/espol/proyecto_EDD/secondary.fxml"));
             Parent root = loader.load();
@@ -188,13 +155,10 @@ public class VerContactoController implements Initializable {
             e.printStackTrace();
         }
         
->>>>>>> 0004191fb95caa2efb0186dc180998aa0e1bbea4
     }
 
     @FXML
     private void watchGalery(MouseEvent event) {
-<<<<<<< HEAD
-=======
         try{
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/ec/edu/espol/proyecto_EDD/mostrarGalería.fxml"));
             Parent root = loader.load();
@@ -213,7 +177,6 @@ public class VerContactoController implements Initializable {
         }catch(IOException e) {
             e.printStackTrace();
         }
->>>>>>> 0004191fb95caa2efb0186dc180998aa0e1bbea4
     }
     
 }

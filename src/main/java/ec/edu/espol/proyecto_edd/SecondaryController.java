@@ -10,12 +10,6 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-<<<<<<< HEAD
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-=======
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -23,7 +17,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
->>>>>>> 0004191fb95caa2efb0186dc180998aa0e1bbea4
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
@@ -55,10 +48,19 @@ public class SecondaryController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         ArrayList<Contacto>contactos1 = new ArrayList<>();
+        LinkedList<Foto>lfotosc1 = new LinkedList<>();
+        Foto fotoc11 = new Foto("man");
+        lfotosc1.add(fotoc11);
         
-        Contacto contacto1 = new Contacto("Juan", "Perez", "123456789", new ArrayList<>(), new LinkedList<>(), new ArrayList<>(), new ArrayList<>(), null);
+        LinkedList<Foto>lfotosc2 = new LinkedList<>();
+        Foto fotoc21 = new Foto("woman");
+        Foto fotoc22 = new Foto("woman2");
+        lfotosc2.add(fotoc21);
+        lfotosc2.add(fotoc22);
+        
+        Contacto contacto1 = new Contacto("Juan", "Perez", "123456789", new ArrayList<>(), lfotosc1, new ArrayList<>(), new ArrayList<>(), null);
 
-        Contacto contacto2 = new Contacto("Maria", "Lopez", "987654321");
+        Contacto contacto2 = new Contacto("Maria", "Lopez", "987654321", new ArrayList<>(), lfotosc2, new ArrayList<>(), new ArrayList<>(), null);
 
         Contacto contacto3 = new Contacto("Luis", "Rodriguez", "999888777");
         
@@ -99,24 +101,6 @@ public class SecondaryController implements Initializable {
 
     @FXML
     private void crearContacto(MouseEvent event) {
-        //cargar pantalla del nuevo contacto
-        try {
-            
-            Button b = (Button)event.getSource();
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/ec/edu/espol/proyecto_edd/seleccionarTipoContacto.fxml"));
-            Parent root = loader.load();
-            SeleccionarTipoContactoController controlador = loader.getController();
-
-            // Pasa el usuario al controlador de cambio de clave            
-
-            Scene scene = new Scene(root);
-            Stage stage = (Stage) b.getScene().getWindow(); 
-            stage.setScene(scene);
-            stage.show();
-        } catch (IOException e) {
-            System.out.println("Error");
-        }
-        
     }
 
     @FXML
@@ -143,4 +127,3 @@ public class SecondaryController implements Initializable {
     
     
 }
-

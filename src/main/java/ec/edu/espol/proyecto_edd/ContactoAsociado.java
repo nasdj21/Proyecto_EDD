@@ -10,17 +10,16 @@ import java.io.Serializable;
  *
  * @author nicolassierra
  */
-<<<<<<< HEAD
 public class ContactoAsociado implements Serializable {
-=======
-public class ContactoAsociado implements Serializable{
->>>>>>> 0004191fb95caa2efb0186dc180998aa0e1bbea4
     private String nombre;
     private String relacion;
 
     public ContactoAsociado(String nombre, String relacion) {
         this.nombre = nombre;
         this.relacion = relacion;
+    }
+    
+        public ContactoAsociado() {
     }
 
     public String getNombre() {
