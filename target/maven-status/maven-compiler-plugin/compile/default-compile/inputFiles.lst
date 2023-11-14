@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 C:\Users\JOSUE\OneDrive\Escritorio\ProjectDataStructures\Proyecto_EDD\src\main\java\ec\edu\espol\proyecto_edd\PrimaryController.java
 C:\Users\JOSUE\OneDrive\Escritorio\ProjectDataStructures\Proyecto_EDD\src\main\java\ec\edu\espol\proyecto_edd\Direccion.java
 C:\Users\JOSUE\OneDrive\Escritorio\ProjectDataStructures\Proyecto_EDD\src\main\java\ec\edu\espol\proyecto_edd\VerContactoController.java
@@ -18,3 +19,24 @@ C:\Users\JOSUE\OneDrive\Escritorio\ProjectDataStructures\Proyecto_EDD\src\main\j
 C:\Users\JOSUE\OneDrive\Escritorio\ProjectDataStructures\Proyecto_EDD\src\main\java\ec\edu\espol\proyecto_edd\CrearUsuarioController.java
 C:\Users\JOSUE\OneDrive\Escritorio\ProjectDataStructures\Proyecto_EDD\src\main\java\module-info.java
 C:\Users\JOSUE\OneDrive\Escritorio\ProjectDataStructures\Proyecto_EDD\src\main\java\ec\edu\espol\proyecto_edd\SecondaryController.java
+=======
+/Users/nicolassierra/NetBeansProjects/Proyecto_EDD_G11/Proyecto_EDD/src/main/java/ec/edu/espol/proyecto_edd/SeleccionarTipoContactoController.java
+/Users/nicolassierra/NetBeansProjects/Proyecto_EDD_G11/Proyecto_EDD/src/main/java/ec/edu/espol/proyecto_edd/SecondaryController.java
+/Users/nicolassierra/NetBeansProjects/Proyecto_EDD_G11/Proyecto_EDD/src/main/java/ec/edu/espol/proyecto_edd/EditContactController.java
+/Users/nicolassierra/NetBeansProjects/Proyecto_EDD_G11/Proyecto_EDD/src/main/java/TDA/G11List.java
+/Users/nicolassierra/NetBeansProjects/Proyecto_EDD_G11/Proyecto_EDD/src/main/java/ec/edu/espol/proyecto_edd/VerContactoController.java
+/Users/nicolassierra/NetBeansProjects/Proyecto_EDD_G11/Proyecto_EDD/src/main/java/ec/edu/espol/proyecto_edd/ContactoEmpresa.java
+/Users/nicolassierra/NetBeansProjects/Proyecto_EDD_G11/Proyecto_EDD/src/main/java/ec/edu/espol/proyecto_edd/CrearUsuarioController.java
+/Users/nicolassierra/NetBeansProjects/Proyecto_EDD_G11/Proyecto_EDD/src/main/java/ec/edu/espol/proyecto_edd/PrimaryController.java
+/Users/nicolassierra/NetBeansProjects/Proyecto_EDD_G11/Proyecto_EDD/src/main/java/ec/edu/espol/proyecto_edd/CrearEmpresaController.java
+/Users/nicolassierra/NetBeansProjects/Proyecto_EDD_G11/Proyecto_EDD/src/main/java/ec/edu/espol/proyecto_edd/App.java
+/Users/nicolassierra/NetBeansProjects/Proyecto_EDD_G11/Proyecto_EDD/src/main/java/ec/edu/espol/proyecto_edd/ContactoAsociado.java
+/Users/nicolassierra/NetBeansProjects/Proyecto_EDD_G11/Proyecto_EDD/src/main/java/ec/edu/espol/proyecto_edd/Contacto.java
+/Users/nicolassierra/NetBeansProjects/Proyecto_EDD_G11/Proyecto_EDD/src/main/java/module-info.java
+/Users/nicolassierra/NetBeansProjects/Proyecto_EDD_G11/Proyecto_EDD/src/main/java/ec/edu/espol/proyecto_edd/Direccion.java
+/Users/nicolassierra/NetBeansProjects/Proyecto_EDD_G11/Proyecto_EDD/src/main/java/ec/edu/espol/proyecto_edd/Foto.java
+/Users/nicolassierra/NetBeansProjects/Proyecto_EDD_G11/Proyecto_EDD/src/main/java/TDA/CDLinkedList.java
+/Users/nicolassierra/NetBeansProjects/Proyecto_EDD_G11/Proyecto_EDD/src/main/java/ec/edu/espol/proyecto_edd/MostrarGaleríaController.java
+/Users/nicolassierra/NetBeansProjects/Proyecto_EDD_G11/Proyecto_EDD/src/main/java/ec/edu/espol/proyecto_edd/Correo.java
+/Users/nicolassierra/NetBeansProjects/Proyecto_EDD_G11/Proyecto_EDD/src/main/java/ec/edu/espol/proyecto_edd/Recordatorio.java
+>>>>>>> 0004191fb95caa2efb0186dc180998aa0e1bbea4

@@ -49,6 +49,16 @@ public class Contacto implements Serializable{
         this.correos = new ArrayList<Correo>();
         this.fotos = new LinkedList<Foto>();
         this.direcciones = new ArrayList<Direccion>();
+        this.recordatorios = new ArrayList<Recordatorio>();
+    }
+    
+    public Contacto(String nombres, String numero) {
+        this.nombres = nombres;
+        this.numero = numero;
+        this.correos = new ArrayList<Correo>();
+        this.fotos = new LinkedList<Foto>();
+        this.direcciones = new ArrayList<Direccion>();
+        this.recordatorios = new ArrayList<Recordatorio>();
     }
 
     public Contacto(String nombres, String numero) {
@@ -109,6 +119,24 @@ public class Contacto implements Serializable{
     public void setDirecciones(ArrayList<Direccion> direcciones) {
         this.direcciones = direcciones;
     }
+
+    public ArrayList<Recordatorio> getRecordatorios() {
+        return recordatorios;
+    }
+
+    public void setRecordatorios(ArrayList<Recordatorio> recordatorios) {
+        this.recordatorios = recordatorios;
+    }
+
+    public ContactoAsociado getContactoAsociado() {
+        return contactoAsociado;
+    }
+
+    public void setContactoAsociado(ContactoAsociado contactoAsociado) {
+        this.contactoAsociado = contactoAsociado;
+    }
+    
+    
 
     public static ArrayList<Contacto> readListFromFileSer() {
         ArrayList<Contacto> contactos = new ArrayList<>();

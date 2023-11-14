@@ -16,9 +16,13 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
+<<<<<<< HEAD
 <ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="999.0" prefWidth="595.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ec.edu.espol.proyecto_edd.VerContactoController">
+=======
+<ScrollPane hbarPolicy="NEVER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="999.0" prefWidth="595.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ec.edu.espol.proyecto_edd.VerContactoController">
+>>>>>>> 0004191fb95caa2efb0186dc180998aa0e1bbea4
    <content>
-      <BorderPane prefHeight="900.0" prefWidth="595.0" style="-fx-background-color: #010001;">
+      <BorderPane prefHeight="995.0" prefWidth="595.0" style="-fx-background-color: #010001;">
          <center>
             <GridPane prefHeight="772.0" prefWidth="595.0" BorderPane.alignment="CENTER">
                <columnConstraints>
@@ -115,7 +119,7 @@
                               <Image url="@../../../../img/Imagen3.jpg" />
                            </image>
                         </ImageView>
-                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#watchGalery" prefHeight="44.0" prefWidth="183.0" style="-fx-background-color: #9A031E;" text="Watch Galery" textAlignment="CENTER" textFill="#fcdc4d">
+                        <Button fx:id="watchgalleryButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#watchGalery" prefHeight="44.0" prefWidth="183.0" style="-fx-background-color: #9A031E;" text="Watch Gallery" textAlignment="CENTER" textFill="#fcdc4d">
                            <font>
                               <Font name="Baskerville Old Face" size="24.0" />
                            </font>
@@ -123,6 +127,26 @@
                      </children>
                   </VBox>
                   <ComboBox fx:id="relatedcontacts" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                  <Label fx:id="mailLabel" textFill="WHITE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="numberLabel" textFill="WHITE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="4">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="directionLabel" textFill="WHITE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="5">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="dateLabel" textFill="WHITE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="6">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
                </children>
                <padding>
                   <Insets left="20.0" />
@@ -147,12 +171,12 @@
                <children>
                   <ButtonBar prefHeight="44.0" prefWidth="551.0">
                      <buttons>
-                        <Button alignment="CENTER" mnemonicParsing="false" onMouseClicked="#editContact" prefHeight="44.0" prefWidth="370.0" style="-fx-background-color: #9A031E;" text="Edit" textAlignment="CENTER" textFill="#fcdc4d">
+                        <Button fx:id="editButton" alignment="CENTER" mnemonicParsing="false" onMouseClicked="#editContact" prefHeight="44.0" prefWidth="370.0" style="-fx-background-color: #9A031E;" text="Edit" textAlignment="CENTER" textFill="#fcdc4d">
                            <font>
                               <Font name="Baskerville Old Face" size="24.0" />
                            </font>
                         </Button>
-                        <Button alignment="CENTER" mnemonicParsing="false" onMouseClicked="#back" prefHeight="44.0" prefWidth="197.0" style="-fx-background-color: #9A031E;" text="Back" textAlignment="CENTER" textFill="#fcdc4d">
+                        <Button fx:id="backButton" alignment="CENTER" mnemonicParsing="false" onMouseClicked="#back" prefHeight="44.0" prefWidth="197.0" style="-fx-background-color: #9A031E;" text="Back" textAlignment="CENTER" textFill="#fcdc4d">
                            <font>
                               <Font name="Baskerville Old Face" size="24.0" />
                            </font>

@@ -10,7 +10,11 @@ import java.io.Serializable;
  *
  * @author nicolassierra
  */
+<<<<<<< HEAD
 public class Direccion implements Serializable {
+=======
+public class Direccion implements Serializable{
+>>>>>>> 0004191fb95caa2efb0186dc180998aa0e1bbea4
     private String label;
     private String direccion;
 

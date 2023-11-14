@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ec\edu\espol\proyecto_edd\Correo.class
 ec\edu\espol\proyecto_edd\PrimaryController.class
 module-info.class
@@ -9,3 +10,6 @@ TDA\G11List.class
 ec\edu\espol\proyecto_edd\Direccion.class
 ec\edu\espol\proyecto_edd\Contacto.class
 ec\edu\espol\proyecto_edd\agregarInformacion.class
+=======
+module-info.class
+>>>>>>> 0004191fb95caa2efb0186dc180998aa0e1bbea4
