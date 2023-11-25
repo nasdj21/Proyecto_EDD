@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
- */
 package ec.edu.espol.proyecto_edd;
 
 import ec.edu.espol.proyecto_edd.Contacto;
@@ -24,47 +20,42 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
-/**
- * FXML Controller class
- *
- * @author JOSUE
- */
+
 public class VerContactoController implements Initializable {
 
+    
     @FXML
-    private TextField nametext;
+    private Label numbertext;
     @FXML
-    private TextField lastnametext;
+    private Label emailtext;
     @FXML
-    private TextField numbertext;
+    private Label directiontext;   
     @FXML
-    private TextField emailtext;
-    @FXML
-    private TextField directiontext;
-    @FXML
-    private TextField datetext1;
-    @FXML
-    private ImageView imageId;
-    @FXML
-    private ComboBox<String> relatedcontacts;
+    private ImageView imageId;   
     @FXML
     private Label numberLabel;
     @FXML
-    private Label directionLabel;
-    @FXML
-    private Label dateLabel;
+    private Label directionLabel;    
     @FXML
     private Label mailLabel;
-    
     private ArrayList<Contacto>contactos;
     @FXML
     private Button editButton;
     @FXML
-    private Button backButton;
+    private Button backButton;    
     @FXML
-    private Button watchgalleryButton;
+    private Label labelContact;
+    @FXML
+    private Label empresaLabel;
+    @FXML
+    private ImageView telefonoImagen;
+    @FXML
+    private ImageView correoImagen;
+    @FXML
+    private ImageView direccionImagen;
     
     private Contacto contacto;
+
     
     public void setContactos(ArrayList<Contacto>contactos){
         this.contactos = contactos;
@@ -91,10 +82,9 @@ public class VerContactoController implements Initializable {
         
         if (c instanceof ContactoEmpresa) {
             // Verificar y asignar el nombre
-            nametext.setText(c.getNombres() != null ? c.getNombres() : "N/A");
+            labelContact.setText(c.getNombres() != null ? c.getNombres() : "N/A");
 
-            // Verificar y asignar los apellidos
-            lastnametext.setText("N/A");
+          
 
             // Verificar y asignar el número
             numbertext.setText(c.getNumero() != null ? c.getNumero() : "N/A");
@@ -104,16 +94,19 @@ public class VerContactoController implements Initializable {
             mailLabel.setText(c.getCorreos().isEmpty() ? "N/A" : c.getCorreos().get(0).getLabel());
             directiontext.setText(c.getDirecciones().isEmpty() ? "N/A" : c.getDirecciones().get(0).getDireccion());
             directionLabel.setText(c.getDirecciones().isEmpty() ? "N/A" : c.getDirecciones().get(0).getLabel());
-            datetext1.setText(c.getRecordatorios().isEmpty() ? "N/A" : c.getRecordatorios().get(0).getDate());
-            dateLabel.setText(c.getRecordatorios().isEmpty() ? "N/A" : c.getRecordatorios().get(0).getLabel());
-            relatedcontacts.getItems().add(c.getContactoAsociado() != null ? "N/A" :
-                    c.getContactoAsociado().getNombre() + " : " + c.getContactoAsociado().getRelacion());
+            //Esto va cuando agregue los labels y combobox que faltan//
+//            datetext1.setText(c.getRecordatorios().isEmpty() ? "N/A" : c.getRecordatorios().get(0).getDate());
+//            dateLabel.setText(c.getRecordatorios().isEmpty() ? "N/A" : c.getRecordatorios().get(0).getLabel());
+//            relatedcontacts.getItems().add(c.getContactoAsociado() != null ? "N/A" :
+//                    c.getContactoAsociado().getNombre() + " : " + c.getContactoAsociado().getRelacion());
         }else{
+            
+            empresaLabel.setText("");
+            numberLabel.setText("Personal");
             // Verificar y asignar el nombre
-            nametext.setText(c.getNombres() != null ? c.getNombres() : "N/A");
+            labelContact.setText(c.getNombres() != null && c.getApellidos() != null ? c.getNombres()+" "+c.getApellidos(): "N/A");
 
-            // Verificar y asignar los apellidos
-            lastnametext.setText(c.getApellidos() != null ? c.getApellidos() : "N/A");
+            
 
             // Verificar y asignar el número
             numbertext.setText(c.getNumero() != null ? c.getNumero() : "N/A");
@@ -123,10 +116,11 @@ public class VerContactoController implements Initializable {
             mailLabel.setText(c.getCorreos().isEmpty() ? "N/A" : c.getCorreos().get(0).getLabel());
             directiontext.setText(c.getDirecciones().isEmpty() ? "N/A" : c.getDirecciones().get(0).getDireccion());
             directionLabel.setText(c.getDirecciones().isEmpty() ? "N/A" : c.getDirecciones().get(0).getLabel());
-            datetext1.setText(c.getRecordatorios().isEmpty() ? "N/A" : c.getRecordatorios().get(0).getDate());
-            dateLabel.setText(c.getRecordatorios().isEmpty() ? "N/A" : c.getRecordatorios().get(0).getLabel());
-            relatedcontacts.getItems().add(c.getContactoAsociado() == null ? "N/A" :
-                    c.getContactoAsociado().getNombre() + " : " + c.getContactoAsociado().getRelacion());
+            //Esto va cuando agregue los labels y combobox que faltan//
+//            datetext1.setText(c.getRecordatorios().isEmpty() ? "N/A" : c.getRecordatorios().get(0).getDate());
+//            dateLabel.setText(c.getRecordatorios().isEmpty() ? "N/A" : c.getRecordatorios().get(0).getLabel());
+//            relatedcontacts.getItems().add(c.getContactoAsociado() == null ? "N/A" :
+//                    c.getContactoAsociado().getNombre() + " : " + c.getContactoAsociado().getRelacion());
         }
     }
 
