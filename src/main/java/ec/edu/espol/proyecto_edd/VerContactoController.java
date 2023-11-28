@@ -15,13 +15,16 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.control.TitledPane;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 
-public class VerContactoController implements Initializable {
+public class VerContactoController implements Initializable, rowHandler {
 
     
     @FXML
@@ -55,6 +58,40 @@ public class VerContactoController implements Initializable {
     private ImageView direccionImagen;
     
     private Contacto contacto;
+    @FXML
+    private GridPane centerGrid;
+    @FXML
+    private GridPane infoGrid;
+    @FXML
+    private TitledPane contactInfoTitlePane;
+    @FXML
+    private TitledPane aboutTitlePane;
+    @FXML
+    private ImageView cumpleañosImagen;
+    @FXML
+    private ImageView asociadoImagen;
+    @FXML
+    private ImageView otrosImagen;
+    @FXML
+    private Label cumpleañosText;
+    @FXML
+    private Label asociadoTexto;
+    @FXML
+    private Label otrosText;
+    @FXML
+    private VBox telefonoVbox;
+    @FXML
+    private VBox telefonoLabelVbox;
+    @FXML
+    private VBox correoVbox;
+    @FXML
+    private VBox correoLabelVbox;
+    @FXML
+    private VBox direccionVbox;
+    @FXML
+    private VBox direccionLabelVbox;
+    @FXML
+    private VBox recordatorioVbox;
 
     
     public void setContactos(ArrayList<Contacto>contactos){
@@ -79,50 +116,68 @@ public class VerContactoController implements Initializable {
             Image perfil = new Image("/img/"+nombreImagen);
             imageId.setImage(perfil); 
         }
+        Image imgCorreo = new Image("/img/icons8-gmail-logo-50.png");
+        Image imgLocation = new Image("/img/icons8-google-maps-50.png");
+        
         
         if (c instanceof ContactoEmpresa) {
-            // Verificar y asignar el nombre
             labelContact.setText(c.getNombres() != null ? c.getNombres() : "N/A");
-
-          
-
-            // Verificar y asignar el número
-            numbertext.setText(c.getNumero() != null ? c.getNumero() : "N/A");
-
-            // Desde aquí, los atributos son opcionales
-            emailtext.setText(c.getCorreos().isEmpty() ? "N/A" : c.getCorreos().get(0).getDireccion());
-            mailLabel.setText(c.getCorreos().isEmpty() ? "N/A" : c.getCorreos().get(0).getLabel());
-            directiontext.setText(c.getDirecciones().isEmpty() ? "N/A" : c.getDirecciones().get(0).getDireccion());
-            directionLabel.setText(c.getDirecciones().isEmpty() ? "N/A" : c.getDirecciones().get(0).getLabel());
-            //Esto va cuando agregue los labels y combobox que faltan//
-//            datetext1.setText(c.getRecordatorios().isEmpty() ? "N/A" : c.getRecordatorios().get(0).getDate());
-//            dateLabel.setText(c.getRecordatorios().isEmpty() ? "N/A" : c.getRecordatorios().get(0).getLabel());
-//            relatedcontacts.getItems().add(c.getContactoAsociado() != null ? "N/A" :
-//                    c.getContactoAsociado().getNombre() + " : " + c.getContactoAsociado().getRelacion());
-        }else{
             
+
+        }else{
             empresaLabel.setText("");
             numberLabel.setText("Personal");
-            // Verificar y asignar el nombre
             labelContact.setText(c.getNombres() != null && c.getApellidos() != null ? c.getNombres()+" "+c.getApellidos(): "N/A");
-
+        }
+        
             
 
             // Verificar y asignar el número
-            numbertext.setText(c.getNumero() != null ? c.getNumero() : "N/A");
+            numbertext.setText(c.getNumero() != null ? c.getNumero() : "");
+            
+            
+            //Cuando numero sea un arraylist, recorrer la lista y agregar cada uno
+            
+           
 
             // Desde aquí, los atributos son opcionales
-            emailtext.setText(c.getCorreos().isEmpty() ? "N/A" : c.getCorreos().get(0).getDireccion());
-            mailLabel.setText(c.getCorreos().isEmpty() ? "N/A" : c.getCorreos().get(0).getLabel());
-            directiontext.setText(c.getDirecciones().isEmpty() ? "N/A" : c.getDirecciones().get(0).getDireccion());
-            directionLabel.setText(c.getDirecciones().isEmpty() ? "N/A" : c.getDirecciones().get(0).getLabel());
+            
+            if(!c.getDirecciones().isEmpty()){
+                if(c.getDirecciones().size() == 1){
+                directiontext.setText(c.getDirecciones().get(0).getDireccion());
+                direccionImagen.setImage(imgLocation);
+                directionLabel.setText("Hogar");
+                }else{
+                    for(Direccion d : c.getDirecciones()){
+                       addLabelToVbox(direccionVbox, directiontext, d.getDireccion()); 
+                       addLabelToVbox(direccionLabelVbox, directionLabel, d.getLabel()); 
+                    }
+                }
+            } else{removeRow(infoGrid,contactInfoTitlePane,2);}
+            
+            if(!c.getCorreos().isEmpty()){
+                if(c.getCorreos().size() == 1){
+                emailtext.setText(c.getCorreos().get(0).getDireccion());
+                correoImagen.setImage(imgCorreo);
+                mailLabel.setText("Personal");
+                }else{
+                    for(Correo mail : c.getCorreos()){
+                       addLabelToVbox(correoVbox, emailtext, mail.getDireccion()); 
+                       addLabelToVbox(correoLabelVbox, mailLabel, mail.getLabel());
+                    }
+                }
+            } else{removeRow(infoGrid,contactInfoTitlePane,1);}
+            
+             
+            
+           
             //Esto va cuando agregue los labels y combobox que faltan//
 //            datetext1.setText(c.getRecordatorios().isEmpty() ? "N/A" : c.getRecordatorios().get(0).getDate());
 //            dateLabel.setText(c.getRecordatorios().isEmpty() ? "N/A" : c.getRecordatorios().get(0).getLabel());
 //            relatedcontacts.getItems().add(c.getContactoAsociado() == null ? "N/A" :
 //                    c.getContactoAsociado().getNombre() + " : " + c.getContactoAsociado().getRelacion());
         }
-    }
+    
 
     @FXML
     private void editContact(MouseEvent event) {
