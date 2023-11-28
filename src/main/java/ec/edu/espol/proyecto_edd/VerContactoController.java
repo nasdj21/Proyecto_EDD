@@ -191,8 +191,7 @@ public class VerContactoController implements Initializable, rowHandler {
             
             SecondaryController secController = loader.getController();
             
-            //Cuando ya elimine los contactos del initialize en secondarycontroller, pongo este metodo
-//            secController.mostrar(contactos);
+        
             secController.setContactos(contactos);
             
             Scene scene = new Scene(root);
