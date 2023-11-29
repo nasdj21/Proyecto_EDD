@@ -58,7 +58,15 @@ public class SecondaryController implements Initializable {
         lfotosc2.add(fotoc21);
         lfotosc2.add(fotoc22);
         
-        Contacto contacto1 = new Contacto("Juan", "Perez", "123456789", new ArrayList<>(), lfotosc1, new ArrayList<>(), new ArrayList<>(), null);
+        //Borrar despues de probar//
+        Correo correo1 = new Correo("personal", "juancorreo@gmail.com");
+        Correo correo2 = new Correo("trabajo", "josql@sdl.com");
+        ArrayList<Correo>correosJuan = new ArrayList<>();
+        correosJuan.add(correo1);
+        correosJuan.add(correo2);
+        //Borrar despues de probar//
+        
+        Contacto contacto1 = new Contacto("Juan", "Perez", "123456789", correosJuan, lfotosc1, new ArrayList<>(), new ArrayList<>(), null);
 
         Contacto contacto2 = new Contacto("Maria", "Lopez", "987654321", new ArrayList<>(), lfotosc2, new ArrayList<>(), new ArrayList<>(), null);
 

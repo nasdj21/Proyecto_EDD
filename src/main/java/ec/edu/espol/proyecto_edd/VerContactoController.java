@@ -50,8 +50,7 @@ public class VerContactoController implements Initializable, rowHandler {
     private Label labelContact;
     @FXML
     private Label empresaLabel;
-    @FXML
-    private ImageView telefonoImagen;
+    
     @FXML
     private ImageView correoImagen;
     @FXML
@@ -67,13 +66,9 @@ public class VerContactoController implements Initializable, rowHandler {
     @FXML
     private TitledPane aboutTitlePane;
     @FXML
-    private ImageView cumpleañosImagen;
-    @FXML
     private ImageView asociadoImagen;
     @FXML
     private ImageView otrosImagen;
-    @FXML
-    private Label cumpleañosText;
     @FXML
     private Label asociadoTexto;
     @FXML
@@ -92,6 +87,28 @@ public class VerContactoController implements Initializable, rowHandler {
     private VBox direccionLabelVbox;
     @FXML
     private VBox recordatorioVbox;
+    @FXML
+    private GridPane aboutGrid;
+    @FXML
+    private ImageView telefonoImagen;
+    @FXML
+    private Label redSocialText;
+    @FXML
+    private Label redSocialLabel;
+    @FXML
+    private Label recordatorioLabel;
+    @FXML
+    private ImageView redSocialImagen;
+    private VBox redSocialVbox;
+    
+    Image imgCorreo = new Image("/img/icons8-gmail-logo-50.png");
+    Image imgLocation = new Image("/img/icons8-google-maps-50.png");
+    Image imgRecordatorio = new Image("/img/icons8-contacts-50.png");
+    Image imgAsociado = new Image("/img/icons8-google-contacts-48.png");
+    Image imgRedes = new Image("/img/icons8-instagram-50.png");
+    @FXML
+    private VBox redSocialLabelVbox;
+
 
     
     public void setContactos(ArrayList<Contacto>contactos){
@@ -107,7 +124,7 @@ public class VerContactoController implements Initializable, rowHandler {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        
     }
 
     public void show(Contacto c){
@@ -116,8 +133,7 @@ public class VerContactoController implements Initializable, rowHandler {
             Image perfil = new Image("/img/"+nombreImagen);
             imageId.setImage(perfil); 
         }
-        Image imgCorreo = new Image("/img/icons8-gmail-logo-50.png");
-        Image imgLocation = new Image("/img/icons8-google-maps-50.png");
+       
         
         
         if (c instanceof ContactoEmpresa) {
@@ -130,53 +146,108 @@ public class VerContactoController implements Initializable, rowHandler {
             labelContact.setText(c.getNombres() != null && c.getApellidos() != null ? c.getNombres()+" "+c.getApellidos(): "N/A");
         }
         
+        
+        //info contact
+        
+            numbertext.setText(c.getNumero().getFirst().getNumero());
+            numberLabel.setText("Por Defecto");
+            if(c.getNumero().size() > 1){
+                for(int i = 1; i < c.getNumero().size(); i++){
+                   addLabelToVbox(telefonoVbox, numbertext, c.getNumero().get(i).getNumero()); 
+                   addLabelToVbox(telefonoLabelVbox, numberLabel, c.getNumero().get(i).getLabel());
+                }
+            }
             
-
-            // Verificar y asignar el número
-            numbertext.setText(c.getNumero() != null ? c.getNumero() : "");
-            
-            
-            //Cuando numero sea un arraylist, recorrer la lista y agregar cada uno
             
            
 
             // Desde aquí, los atributos son opcionales
             
-            if(!c.getDirecciones().isEmpty()){
-                if(c.getDirecciones().size() == 1){
-                directiontext.setText(c.getDirecciones().get(0).getDireccion());
-                direccionImagen.setImage(imgLocation);
-                directionLabel.setText("Hogar");
-                }else{
-                    for(Direccion d : c.getDirecciones()){
-                       addLabelToVbox(direccionVbox, directiontext, d.getDireccion()); 
-                       addLabelToVbox(direccionLabelVbox, directionLabel, d.getLabel()); 
+            if(c.getDirecciones().isEmpty() && c.getCorreos().isEmpty()){
+                removeRow(infoGrid,contactInfoTitlePane,2);
+                removeRow(infoGrid,contactInfoTitlePane,1);
+                
+            }else {
+                if(!c.getDirecciones().isEmpty()){
+                    
+                    directiontext.setText(c.getDirecciones().get(0).getDireccion());
+                    direccionImagen.setImage(imgLocation);
+                    directionLabel.setText("Hogar");
+                    if(c.getDirecciones().size() > 1){
+                        for(int i = 1; i < c.getDirecciones().size(); i++){
+                           addLabelToVbox(direccionVbox, directiontext, c.getDirecciones().get(i).getDireccion()); 
+                           addLabelToVbox(direccionLabelVbox, directionLabel, c.getDirecciones().get(i).getLabel()); 
+                        }
                     }
-                }
-            } else{removeRow(infoGrid,contactInfoTitlePane,2);}
-            
-            if(!c.getCorreos().isEmpty()){
-                if(c.getCorreos().size() == 1){
-                emailtext.setText(c.getCorreos().get(0).getDireccion());
-                correoImagen.setImage(imgCorreo);
-                mailLabel.setText("Personal");
                 }else{
-                    for(Correo mail : c.getCorreos()){
-                       addLabelToVbox(correoVbox, emailtext, mail.getDireccion()); 
-                       addLabelToVbox(correoLabelVbox, mailLabel, mail.getLabel());
-                    }
+                    directiontext.setText("");
+                    directionLabel.setText("");
                 }
-            } else{removeRow(infoGrid,contactInfoTitlePane,1);}
+                
+                if(!c.getCorreos().isEmpty()){
+                    correoImagen.setImage(imgCorreo);
+                    emailtext.setText(c.getCorreos().get(0).getDireccion());
+                    mailLabel.setText("Personal");
+                    if(c.getCorreos().size() > 1){
+                        for(int i = 1; i < c.getCorreos().size(); i++){
+                           addLabelToVbox(correoVbox, emailtext, c.getCorreos().get(i).getDireccion()); 
+                           addLabelToVbox(correoLabelVbox, mailLabel, c.getCorreos().get(i).getLabel());
+                        }
+                    }
+                }else{
+                    emailtext.setText("");
+                    mailLabel.setText("");
+                }
+           }
             
-             
+            //about Contact
             
-           
-            //Esto va cuando agregue los labels y combobox que faltan//
-//            datetext1.setText(c.getRecordatorios().isEmpty() ? "N/A" : c.getRecordatorios().get(0).getDate());
-//            dateLabel.setText(c.getRecordatorios().isEmpty() ? "N/A" : c.getRecordatorios().get(0).getLabel());
-//            relatedcontacts.getItems().add(c.getContactoAsociado() == null ? "N/A" :
-//                    c.getContactoAsociado().getNombre() + " : " + c.getContactoAsociado().getRelacion());
+            if(c.getRecordatorios().isEmpty() && c.getContactoAsociado() == null){
+                centerGrid.getChildren().remove(aboutTitlePane);
+                
+                
+            }else{
+                if(!c.getRecordatorios().isEmpty()){
+                    
+                    otrosText.setText(c.getRecordatorios().get(0).getInfo());
+                    otrosImagen.setImage(imgRecordatorio);
+                    recordatorioLabel.setText(c.getRecordatorios().get(0).getLabel());
+                    
+                    if(c.getRecordatorios().size() > 1){
+                        for(int i = 1; i < c.getRecordatorios().size(); i++){
+                           addLabelToVbox(recordatorioVbox, otrosText, c.getRecordatorios().get(i).getInfo());
+                           addLabelToVbox(recordatorioVbox, recordatorioLabel, c.getRecordatorios().get(i).getLabel()); 
+                        }
+                    }
+                }else{
+                    otrosText.setText("");
+                    recordatorioLabel.setText("");
+                    
+                }
+                
+                if(c.getContactoAsociado() != null){
+                    asociadoTexto.setText(c.getContactoAsociado().getNombre());
+                    asociadoImagen.setImage(imgAsociado);
+                }else{
+                    asociadoTexto.setText("");
+                    
+                }
+                
+                if(!c.getRedes().isEmpty()){
+                    redSocialText.setText(c.getRedes().getFirst().getCuenta());
+                    redSocialImagen.setImage(imgRedes);
+                    redSocialLabel.setText(c.getRedes().getFirst().getPlataforma());
+                    if(c.getRedes().size() > 1){
+                        for(int i = 1; i < c.getRedes().size(); i++){
+                           addLabelToVbox(redSocialVbox, redSocialText, c.getRedes().get(i).getCuenta());
+                           addLabelToVbox(redSocialLabelVbox, redSocialLabel, c.getRedes().get(i).getPlataforma());
+                    }
+                }else
+                    redSocialText.setText("");
+                    redSocialLabel.setText("");
+            }
         }
+    }
     
 
     @FXML

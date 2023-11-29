@@ -44,14 +44,14 @@
             </VBox>
          </top>
          <center>
-            <GridPane fx:id="centerGrid" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="630.0" prefWidth="536.0" BorderPane.alignment="CENTER">
+            <GridPane fx:id="centerGrid" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="659.0" prefWidth="536.0" BorderPane.alignment="CENTER">
               <columnConstraints>
                 <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="100.0" />
               </columnConstraints>
               <rowConstraints>
                 <RowConstraints maxHeight="378.0" minHeight="10.0" prefHeight="371.0" vgrow="ALWAYS" />
-                <RowConstraints maxHeight="285.0" minHeight="10.0" prefHeight="41.0" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="300.0" minHeight="10.0" prefHeight="220.0" vgrow="ALWAYS" />
+                <RowConstraints maxHeight="285.0" minHeight="10.0" prefHeight="22.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="300.0" minHeight="10.0" prefHeight="238.0" vgrow="ALWAYS" />
               </rowConstraints>
                <children>
                   <TitledPane fx:id="contactInfoTitlePane" alignment="TOP_LEFT" animated="false" prefHeight="399.0" prefWidth="536.0" text="Contact info">
@@ -133,33 +133,28 @@
                         </GridPane>
                      </content>
                   </TitledPane>
-                  <TitledPane fx:id="aboutTitlePane" animated="false" prefHeight="247.0" prefWidth="536.0" text="About" GridPane.rowIndex="2">
+                  <TitledPane fx:id="aboutTitlePane" animated="false" prefHeight="312.0" prefWidth="536.0" style="-fx-background-color: #363A3C;" text="About" GridPane.rowIndex="2">
                      <content>
-                        <GridPane style="-fx-background-color: #363A3C;">
+                        <GridPane fx:id="aboutGrid" prefHeight="235.0" prefWidth="534.0" style="-fx-background-color: #363A3C;">
                           <columnConstraints>
-                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="49.0" />
-                            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="448.0" minWidth="10.0" prefWidth="448.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="67.0" minWidth="49.0" prefWidth="56.0" />
+                            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="482.0" minWidth="10.0" prefWidth="336.0" />
+                              <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="448.0" minWidth="10.0" prefWidth="120.0" />
                           </columnConstraints>
                           <rowConstraints>
-                            <RowConstraints minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                            <RowConstraints minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                            <RowConstraints minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints maxHeight="67.0" minHeight="25.0" prefHeight="36.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="100.0" minHeight="30.0" prefHeight="80.0" vgrow="SOMETIMES" />
+                            <RowConstraints maxHeight="100.0" minHeight="30.0" prefHeight="88.0" vgrow="SOMETIMES" />
                           </rowConstraints>
                            <children>
-                              <ImageView fx:id="cumpleañosImagen" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-                              <ImageView fx:id="asociadoImagen" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+                              <ImageView fx:id="asociadoImagen" fitHeight="34.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
                               <ImageView fx:id="otrosImagen" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
-                              <Label fx:id="cumpleañosText" text="cumpleaños" textFill="WHITE" GridPane.columnIndex="1">
+                              <Label fx:id="asociadoTexto" text="contacto_asociado" textFill="WHITE" GridPane.columnIndex="1">
                                  <font>
                                     <Font size="18.0" />
                                  </font>
                               </Label>
-                              <Label fx:id="asociadoTexto" text="contacto_asociado" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="1">
-                                 <font>
-                                    <Font size="18.0" />
-                                 </font>
-                              </Label>
-                              <VBox fx:id="recordatorioVbox" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="15.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+                              <VBox fx:id="recordatorioVbox" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="12.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
                                  <children>
                                     <Label fx:id="otrosText" text="recordatorio_random" textFill="WHITE">
                                        <font>
@@ -168,6 +163,34 @@
                                     </Label>
                                  </children>
                               </VBox>
+                              <VBox fx:id="redSocialLabelVbox" alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="100.0" spacing="12.0" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+                                 <children>
+                                    <Label fx:id="redSocialLabel" text="redSocialLabel" textFill="WHITE">
+                                       <font>
+                                          <Font name="System Italic" size="14.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                              <VBox fx:id="recordatorioVbox" alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="100.0" spacing="12.0" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+                                 <children>
+                                    <Label fx:id="recordatorioLabel" text="recordatorioLabel" textFill="WHITE">
+                                       <font>
+                                          <Font name="System Italic" size="14.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                              <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="12.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                                 <children>
+                                    <Label fx:id="redSocialText" text="red_social" textFill="WHITE">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                              <ImageView fx:id="redSocialImagen" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
                            </children>
                         </GridPane>
                      </content>
