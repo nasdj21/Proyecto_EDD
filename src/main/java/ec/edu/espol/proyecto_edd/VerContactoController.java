@@ -4,13 +4,14 @@ import ec.edu.espol.proyecto_edd.Contacto;
 import ec.edu.espol.proyecto_edd.ContactoEmpresa;
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
+import TDA.MyArrayList;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
@@ -21,11 +22,13 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 
 
 public class VerContactoController implements Initializable, rowHandler {
 
+    private Contacto contacto;
     
     @FXML
     private Label numbertext;
@@ -41,22 +44,20 @@ public class VerContactoController implements Initializable, rowHandler {
     private Label directionLabel;    
     @FXML
     private Label mailLabel;
-    private ArrayList<Contacto>contactos;
+    
     @FXML
     private Button editButton;
     @FXML
     private Button backButton;    
     @FXML
     private Label labelContact;
-    @FXML
-    private Label empresaLabel;
     
     @FXML
     private ImageView correoImagen;
     @FXML
     private ImageView direccionImagen;
     
-    private Contacto contacto;
+    
     @FXML
     private GridPane centerGrid;
     @FXML
@@ -101,20 +102,19 @@ public class VerContactoController implements Initializable, rowHandler {
     private ImageView redSocialImagen;
     private VBox redSocialVbox;
     
+    @FXML
+    private VBox redSocialLabelVbox;
+    @FXML
+    private ImageView favoriteImageView;
+    
     Image imgCorreo = new Image("/img/icons8-gmail-logo-50.png");
     Image imgLocation = new Image("/img/icons8-google-maps-50.png");
     Image imgRecordatorio = new Image("/img/icons8-contacts-50.png");
     Image imgAsociado = new Image("/img/icons8-google-contacts-48.png");
     Image imgRedes = new Image("/img/icons8-instagram-50.png");
-    @FXML
-    private VBox redSocialLabelVbox;
 
 
-    
-    public void setContactos(ArrayList<Contacto>contactos){
-        this.contactos = contactos;
-    }
-    
+   
     public void setContacto(Contacto c){
         this.contacto = c;
     }
@@ -132,16 +132,23 @@ public class VerContactoController implements Initializable, rowHandler {
            String nombreImagen = c.getFotos().getFirst().getDireccion();
             Image perfil = new Image("/img/"+nombreImagen);
             imageId.setImage(perfil); 
+            
+            Circle mascara = new Circle((imageId.getFitWidth()) / 2, (imageId.getFitHeight()) / 2, (imageId.getFitWidth()) / 2);
+            imageId.setClip(mascara);
         }
-       
+        
+        if(c.isFavorito()){
+            favoriteImageView.setImage(new Image("/img/estrellaLLena.png"));
+        }
+        else{
+            favoriteImageView.setImage(new Image("/img/estrellaVacia.png"));
+        }
         
         
         if (c instanceof ContactoEmpresa) {
             labelContact.setText(c.getNombres() != null ? c.getNombres() : "N/A");
-            
-
         }else{
-            empresaLabel.setText("");
+            
             numberLabel.setText("Personal");
             labelContact.setText(c.getNombres() != null && c.getApellidos() != null ? c.getNombres()+" "+c.getApellidos(): "N/A");
         }
@@ -261,10 +268,7 @@ public class VerContactoController implements Initializable, rowHandler {
             Parent root = loader.load();
             
             SecondaryController secController = loader.getController();
-            
-        
-            secController.setContactos(contactos);
-            
+
             Scene scene = new Scene(root);
             Stage stage = (Stage) backButton.getScene().getWindow(); 
             stage.setScene(scene);
@@ -285,7 +289,6 @@ public class VerContactoController implements Initializable, rowHandler {
             MostrarGaleríaController mostrarController = loader.getController();
             
             mostrarController.presentar(contacto.getFotos());
-            mostrarController.setContactos(contactos);
             mostrarController.setContacto(contacto);
             
             Scene scene = new Scene(root);
@@ -296,6 +299,26 @@ public class VerContactoController implements Initializable, rowHandler {
         }catch(IOException e) {
             e.printStackTrace();
         }
+    }
+
+    @FXML
+    private void modificarFavorito(MouseEvent event) {
+        if(contacto.isFavorito()){
+            Alert alerta = new Alert(Alert.AlertType.INFORMATION, "Eliminado de Favoritos");
+            alerta.show();
+            favoriteImageView.setImage(new Image("/img/estrellaVacia.png"));
+            contacto.setFavorito(false);
+            
+        }else{
+            Alert alerta = new Alert(Alert.AlertType.INFORMATION, "Agregado a Favoritos");
+            alerta.show();
+            favoriteImageView.setImage(new Image("/img/estrellaLLena.png"));
+            contacto.setFavorito(true);
+            
+        }
+        Contacto.actualizarContacto(contacto);
+
+        
     }
     
 }

@@ -6,8 +6,8 @@ package ec.edu.espol.proyecto_edd;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.LinkedList;
+import TDA.MyArrayList;
+import TDA.LinkedListCircular;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -37,17 +37,15 @@ public class MostrarGaleríaController implements Initializable {
     @FXML
     private ImageView imagepanel;
     
-    private ArrayList<Contacto>contactos;
+    private MyArrayList<Contacto>contactos = Contacto.readListFromFileSer();
     
-    private LinkedList<Foto> fotos;
+    private LinkedListCircular<Foto> fotos;
     
     private int indiceActual;
     
     private Contacto contacto;
     
-    public void setContactos(ArrayList<Contacto>contactos){
-        this.contactos = contactos;
-    }
+   
     
     public void setContacto(Contacto c){
         this.contacto = c;
@@ -85,7 +83,7 @@ public class MostrarGaleríaController implements Initializable {
         }
     }
     
-    public void presentar(LinkedList<Foto>fotos){
+    public void presentar(LinkedListCircular<Foto>fotos){
         
         if(fotos.isEmpty()){
             Alert alerta = new Alert(Alert.AlertType.WARNING, "El contacto no tiene foto");
@@ -112,7 +110,7 @@ public class MostrarGaleríaController implements Initializable {
             
             VerContactoController verController = loader.getController();
             
-            verController.setContactos(contactos);
+
             verController.setContacto(contacto);
             verController.show(contacto);
             

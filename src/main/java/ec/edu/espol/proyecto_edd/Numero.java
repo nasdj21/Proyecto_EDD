@@ -4,11 +4,13 @@
  */
 package ec.edu.espol.proyecto_edd;
 
+import java.io.Serializable;
+
 /**
  *
  * @author nicolassierra
  */
-public class Numero {
+public class Numero implements Serializable{
     private String numero;
     private String label;
 
