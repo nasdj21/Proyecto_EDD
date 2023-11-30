@@ -20,14 +20,16 @@ import java.util.LinkedList;
 public class Contacto implements Serializable{
     private String nombres;
     private String apellidos;
-    private String numero;
+    private LinkedList<Numero> numero;
     private ArrayList<Correo> correos;
     private LinkedList<Foto> fotos;
     private ArrayList<Direccion> direcciones;
     private ArrayList<Recordatorio> recordatorios;
     private ContactoAsociado contactoAsociado;
+    private LinkedList<SocialMedia>redes;
+    private boolean favorito;
 
-    public Contacto(String nombres, String apellidos, String numero, ArrayList<Correo> correos, LinkedList<Foto> fotos, ArrayList<Direccion> direcciones, ArrayList<Recordatorio> recordatorios, ContactoAsociado contactoAsociado) {
+    public Contacto(String nombres, String apellidos, LinkedList<Numero> numero, ArrayList<Correo> correos, LinkedList<Foto> fotos, ArrayList<Direccion> direcciones, ArrayList<Recordatorio> recordatorios, ContactoAsociado contactoAsociado, LinkedList<SocialMedia> redes) {
         this.nombres = nombres;
         this.apellidos = apellidos;
         this.numero = numero;
@@ -36,29 +38,53 @@ public class Contacto implements Serializable{
         this.direcciones = direcciones;
         this.recordatorios = recordatorios;
         this.contactoAsociado = contactoAsociado;
+        this.redes = redes;
+        this.favorito = false;
+    }
+    
+    
+    
+
+    public Contacto(String nombres, String apellidos, String numero, ArrayList<Correo> correos, LinkedList<Foto> fotos, ArrayList<Direccion> direcciones, ArrayList<Recordatorio> recordatorios, ContactoAsociado contactoAsociado) {
+        this.nombres = nombres;
+        this.apellidos = apellidos;
+        this.correos = correos;
+        this.fotos = fotos;
+        this.direcciones = direcciones;
+        this.recordatorios = recordatorios;
+        this.contactoAsociado = contactoAsociado;
+        this.numero = new LinkedList<>();
+        this.numero.add(new Numero(numero));
+        this.redes = new LinkedList<>();
+        this.favorito = false;
     }
 
-    
 
     
     
     public Contacto(String nombres, String apellidos, String numero) {
         this.nombres = nombres;
         this.apellidos = apellidos;
-        this.numero = numero;
-        this.correos = new ArrayList<Correo>();
-        this.fotos = new LinkedList<Foto>();
-        this.direcciones = new ArrayList<Direccion>();
-        this.recordatorios = new ArrayList<Recordatorio>();
+        this.numero = new LinkedList<>();
+        this.numero.add(new Numero(numero));
+        this.correos = new ArrayList<>();
+        this.fotos = new LinkedList<>();
+        this.direcciones = new ArrayList<>();
+        this.recordatorios = new ArrayList<>();
+        this.redes = new LinkedList<>();
+        this.favorito = false;
     }
     
     public Contacto(String nombres, String numero) {
         this.nombres = nombres;
-        this.numero = numero;
-        this.correos = new ArrayList<Correo>();
-        this.fotos = new LinkedList<Foto>();
-        this.direcciones = new ArrayList<Direccion>();
-        this.recordatorios = new ArrayList<Recordatorio>();
+        this.numero = new LinkedList<>();
+        this.numero.add(new Numero(numero));
+        this.correos = new ArrayList<>();
+        this.fotos = new LinkedList<>();
+        this.direcciones = new ArrayList<>();
+        this.recordatorios = new ArrayList<>();
+        this.redes = new LinkedList<>();
+        this.favorito = false;
     }
 
     
@@ -80,13 +106,15 @@ public class Contacto implements Serializable{
         this.apellidos = apellidos;
     }
 
-    public String getNumero() {
+    public LinkedList<Numero> getNumero() {
         return numero;
     }
 
-    public void setNumero(String numero) {
+    public void setNumero(LinkedList<Numero> numero) {
         this.numero = numero;
     }
+
+    
 
     public ArrayList<Correo> getCorreos() {
         return correos;
@@ -127,6 +155,24 @@ public class Contacto implements Serializable{
     public void setContactoAsociado(ContactoAsociado contactoAsociado) {
         this.contactoAsociado = contactoAsociado;
     }
+
+    public LinkedList<SocialMedia> getRedes() {
+        return redes;
+    }
+
+    public void setRedes(LinkedList<SocialMedia> redes) {
+        this.redes = redes;
+    }
+
+    public boolean isFavorito() {
+        return favorito;
+    }
+
+    public void setFavorito(boolean favorito) {
+        this.favorito = favorito;
+    }
+    
+    
     
     
 
