@@ -37,7 +37,7 @@ public class MostrarGaleríaController implements Initializable {
     @FXML
     private ImageView imagepanel;
     
-    private ArrayList<Contacto>contactos;
+    private ArrayList<Contacto>contactos = Contacto.readListFromFileSer();
     
     private LinkedList<Foto> fotos;
     
@@ -45,9 +45,7 @@ public class MostrarGaleríaController implements Initializable {
     
     private Contacto contacto;
     
-    public void setContactos(ArrayList<Contacto>contactos){
-        this.contactos = contactos;
-    }
+   
     
     public void setContacto(Contacto c){
         this.contacto = c;
@@ -112,7 +110,7 @@ public class MostrarGaleríaController implements Initializable {
             
             VerContactoController verController = loader.getController();
             
-            verController.setContactos(contactos);
+
             verController.setContacto(contacto);
             verController.show(contacto);
             

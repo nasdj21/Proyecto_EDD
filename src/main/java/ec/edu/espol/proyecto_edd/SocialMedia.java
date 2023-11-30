@@ -4,11 +4,13 @@
  */
 package ec.edu.espol.proyecto_edd;
 
+import java.io.Serializable;
+
 /**
  *
  * @author nicolassierra
  */
-public class SocialMedia {
+public class SocialMedia implements Serializable{
     private String cuenta;
     private String plataforma;
 

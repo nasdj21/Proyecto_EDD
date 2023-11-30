@@ -48,6 +48,7 @@ public class SecondaryController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         ArrayList<Contacto>contactos1 = Contacto.readListFromFileSer();
+        if(contactos1.isEmpty()){
         LinkedList<Foto>lfotosc1 = new LinkedList<>();
         Foto fotoc11 = new Foto("man.png");
         lfotosc1.add(fotoc11);
@@ -67,14 +68,17 @@ public class SecondaryController implements Initializable {
         //Borrar despues de probar//
         
         Contacto contacto1 = new Contacto("Juan", "Perez", "123456789", correosJuan, lfotosc1, new ArrayList<>(), new ArrayList<>(), null);
-
+        
         Contacto contacto2 = new Contacto("Maria", "Lopez", "987654321", new ArrayList<>(), lfotosc2, new ArrayList<>(), new ArrayList<>(), null);
-
+        
         Contacto contacto3 = new Contacto("Luis", "Rodriguez", "999888777");
         
         contactos1.add(contacto1);
         contactos1.add(contacto2);
         contactos1.add(contacto3);
+        Contacto.saveSer(contactos1);
+        }
+        
         
         mostrar(contactos1);
     }
@@ -137,7 +141,6 @@ public class SecondaryController implements Initializable {
             VerContactoController verController = loader.getController();
             
             verController.show(table.getSelectionModel().getSelectedItem());
-            verController.setContactos(contactos);
             verController.setContacto(table.getSelectionModel().getSelectedItem());
             
             Scene scene = new Scene(root);

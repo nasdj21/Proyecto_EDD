@@ -195,19 +195,33 @@ public class Contacto implements Serializable{
         catch(IOException e){
             System.out.println("Error al guardar el archivo de contacto: " + e.getMessage());
             
-        }
-        
-        
+        }   
     }
+    
+    public static void saveSer(ArrayList<Contacto>contactos){
+        try(ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("contactos.ser"))){
+            out.writeObject(contactos);
+        }
+        catch(IOException e){
+            System.out.println("Error al guardar el archivo de contacto: " + e.getMessage());
+            
+        }   
+    }
+    
+    public static void actualizarContacto(Contacto contactoModificado) {
+    ArrayList<Contacto> contactos = Contacto.readListFromFileSer();
 
+    // Buscar el contacto en la lista
+    for (Contacto c : contactos) {
+        if (c.getNombres().equals(contactoModificado.getNombres()) && c.getApellidos().equals(contactoModificado.getApellidos())) { 
+            // Realizar las modificaciones necesarias
+            c.setFavorito(contactoModificado.isFavorito()); 
+
+            break;
+        }
+    }
     
-    
-    
-    
+    Contacto.saveSer(contactos);
+    }
    
-
-    
-    
-    
-    
 }

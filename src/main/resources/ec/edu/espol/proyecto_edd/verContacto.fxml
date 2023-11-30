@@ -20,25 +20,20 @@
    <content>
       <BorderPane prefHeight="995.0" prefWidth="595.0" style="-fx-background-color: #1E2022;">
          <top>
-            <VBox alignment="CENTER" maxHeight="-Infinity" prefHeight="246.0" prefWidth="595.0" spacing="7.0" BorderPane.alignment="CENTER">
+            <VBox alignment="CENTER" maxHeight="-Infinity" prefHeight="212.0" prefWidth="595.0" spacing="3.0" BorderPane.alignment="CENTER">
                <children>
                   <ImageView fx:id="imageId" fitHeight="150.0" fitWidth="200.0" onMouseClicked="#watchGalery" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../../../img/Imagen3.jpg" />
                      </image>
                   </ImageView>
-                  <Label fx:id="labelContact" alignment="CENTER" lineSpacing="15.0" maxHeight="1.7976931348623157E308" prefHeight="70.0" text="CONTACT" textAlignment="CENTER" textFill="WHITE">
+                  <Label fx:id="labelContact" alignment="CENTER" lineSpacing="12.0" maxHeight="1.7976931348623157E308" prefHeight="70.0" text="CONTACT" textAlignment="CENTER" textFill="WHITE">
                      <font>
                         <Font name="Helvetica" size="35.0" />
                      </font>
                      <padding>
                         <Insets bottom="10.0" right="10.0" top="10.0" />
                      </padding>
-                  </Label>
-                  <Label fx:id="empresaLabel" text="Empresa" textFill="WHITE">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
                   </Label>
                </children>
             </VBox>
@@ -199,13 +194,14 @@
             </GridPane>
          </center>
          <bottom>
-            <HBox alignment="CENTER" prefHeight="47.0" prefWidth="595.0" spacing="140.0" BorderPane.alignment="CENTER">
+            <HBox alignment="CENTER" prefHeight="47.0" prefWidth="595.0" spacing="45.0" BorderPane.alignment="CENTER">
                <children>
                   <Button fx:id="backButton" alignment="CENTER" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#back" prefHeight="42.0" prefWidth="200.0" style="-fx-background-color: #21437A;" text="Back" textAlignment="CENTER" textFill="WHITE">
                      <font>
                         <Font name="Baskerville Old Face" size="24.0" />
                      </font>
                   </Button>
+                  <ImageView fx:id="favoriteImageView" fitHeight="50.0" fitWidth="50.0" onMouseClicked="#modificarFavorito" pickOnBounds="true" preserveRatio="true" />
                   <Button fx:id="editButton" alignment="CENTER" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#editContact" prefHeight="42.0" prefWidth="200.0" style="-fx-background-color: #21437A;" text="Edit" textAlignment="CENTER" textFill="WHITE">
                      <font>
                         <Font name="Baskerville Old Face" size="24.0" />
