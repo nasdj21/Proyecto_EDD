@@ -14,11 +14,11 @@ public abstract class agregarInformacion implements Serializable{
     private Contacto contacto;
 
     
-    public static void addCorreoToLinkedList(Contacto contacto, Correo correo) {
+    public static void addCorreoToLinkedListCircular(Contacto contacto, Correo correo) {
         contacto.getCorreos().add(correo);
     }
 
-    public static void addDireccionToLinkedList(Contacto contacto, Direccion direccion) {
+    public static void addDireccionToLinkedListCircular(Contacto contacto, Direccion direccion) {
         contacto.getDirecciones().add(direccion);
     }
     
