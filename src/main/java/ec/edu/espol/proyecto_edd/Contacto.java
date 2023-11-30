@@ -29,6 +29,23 @@ public class Contacto implements Serializable{
     private ContactoAsociado contactoAsociado;
     private LinkedListCircular<SocialMedia>redes;
     private boolean favorito;
+    private String etiqueta;
+
+    public Contacto(String nombres, String apellidos, LinkedListCircular<Numero> numero, MyArrayList<Correo> correos, LinkedListCircular<Foto> fotos, MyArrayList<Direccion> direcciones, MyArrayList<Recordatorio> recordatorios, ContactoAsociado contactoAsociado, LinkedListCircular<SocialMedia> redes, String etiqueta) {
+        this.nombres = nombres;
+        this.apellidos = apellidos;
+        this.numero = numero;
+        this.correos = correos;
+        this.fotos = fotos;
+        this.direcciones = direcciones;
+        this.recordatorios = recordatorios;
+        this.contactoAsociado = contactoAsociado;
+        this.redes = redes;
+        this.favorito = false;
+        this.etiqueta = null;
+    }
+    
+    
 
     public Contacto(String nombres, String apellidos, LinkedListCircular<Numero> numero, MyArrayList<Correo> correos, LinkedListCircular<Foto> fotos, MyArrayList<Direccion> direcciones, MyArrayList<Recordatorio> recordatorios, ContactoAsociado contactoAsociado, LinkedListCircular<SocialMedia> redes) {
         this.nombres = nombres;
@@ -41,6 +58,7 @@ public class Contacto implements Serializable{
         this.contactoAsociado = contactoAsociado;
         this.redes = redes;
         this.favorito = false;
+        this.etiqueta = null;
     }
     
     
@@ -58,6 +76,7 @@ public class Contacto implements Serializable{
         this.numero.add(new Numero(numero));
         this.redes = new LinkedListCircular<>();
         this.favorito = false;
+        this.etiqueta = null;
     }
 
 
@@ -74,6 +93,7 @@ public class Contacto implements Serializable{
         this.recordatorios = new MyArrayList<>();
         this.redes = new LinkedListCircular<>();
         this.favorito = false;
+        this.etiqueta = null;
     }
     
     public Contacto(String nombres, String numero) {
@@ -86,6 +106,7 @@ public class Contacto implements Serializable{
         this.recordatorios = new MyArrayList<>();
         this.redes = new LinkedListCircular<>();
         this.favorito = false;
+        this.etiqueta = null;
     }
 
     
@@ -172,6 +193,16 @@ public class Contacto implements Serializable{
     public void setFavorito(boolean favorito) {
         this.favorito = favorito;
     }
+
+    public String getEtiqueta() {
+        return etiqueta;
+    }
+
+    public void setEtiqueta(String etiqueta) {
+        this.etiqueta = etiqueta;
+    }
+    
+    
     
     
     
