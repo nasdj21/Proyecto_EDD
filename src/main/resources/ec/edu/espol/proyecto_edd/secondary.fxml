@@ -19,8 +19,8 @@
          <top>
             <HBox prefHeight="42.0" prefWidth="200.0" spacing="15.0" BorderPane.alignment="CENTER">
                <children>
-                  <ComboBox fx:id="ordenarComboBox" prefHeight="40.0" prefWidth="120.0" promptText="Ordenar por:" />
-                  <ComboBox prefHeight="40.0" prefWidth="120.0" promptText="Filtrar por:" />
+                  <ComboBox fx:id="ordenarComboBox" onAction="#ordenarPor" prefHeight="40.0" prefWidth="120.0" promptText="Ordenar por:" />
+                  <ComboBox fx:id="filtrarComboBox" onAction="#filtrarPor" prefHeight="40.0" prefWidth="120.0" promptText="Filtrar por:" />
                   <Button fx:id="crearContactoButton" alignment="CENTER" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#crearContacto" prefHeight="42.0" prefWidth="210.0" style="-fx-background-color: #21437A;" text="Crear Contacto" textAlignment="CENTER" textFill="WHITE">
                      <font>
                         <Font size="18.0" />

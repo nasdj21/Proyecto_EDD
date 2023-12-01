@@ -49,7 +49,11 @@ public class MyArrayList<E> implements List<E>, Serializable {
  
     @Override
     public int size() {
-        return size;
+        if(this != null){
+            return size;
+        }else{
+            return 0;
+        }
     }
 
     @Override

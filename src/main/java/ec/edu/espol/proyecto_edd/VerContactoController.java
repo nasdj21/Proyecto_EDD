@@ -209,7 +209,7 @@ public class VerContactoController implements Initializable, rowHandler {
             
             //about Contact
             
-            if(c.getRecordatorios().isEmpty() && c.getContactoAsociado() == null){
+            if(c.getRecordatorios().isEmpty() && c.getRedes().isEmpty() && c.getContactoAsociado() == null){
                 centerGrid.getChildren().remove(aboutTitlePane);
                 
                 
@@ -248,11 +248,12 @@ public class VerContactoController implements Initializable, rowHandler {
                         for(int i = 1; i < c.getRedes().size(); i++){
                            addLabelToVbox(redSocialVbox, redSocialText, c.getRedes().get(i).getCuenta());
                            addLabelToVbox(redSocialLabelVbox, redSocialLabel, c.getRedes().get(i).getPlataforma());
+                        }
                     }
-                }else
+                }else{
                     redSocialText.setText("");
                     redSocialLabel.setText("");
-            }
+                }
         }
     }
     
@@ -267,8 +268,7 @@ public class VerContactoController implements Initializable, rowHandler {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/ec/edu/espol/proyecto_EDD/secondary.fxml"));
             Parent root = loader.load();
             
-            SecondaryController secController = loader.getController();
-
+            
             Scene scene = new Scene(root);
             Stage stage = (Stage) backButton.getScene().getWindow(); 
             stage.setScene(scene);

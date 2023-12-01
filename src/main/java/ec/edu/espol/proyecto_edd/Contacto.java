@@ -47,10 +47,11 @@ public class Contacto implements Serializable, Comparable<Contacto>{
     
     
 
-    public Contacto(String nombres, String apellidos, LinkedListCircular<Numero> numero, MyArrayList<Correo> correos, LinkedListCircular<Foto> fotos, MyArrayList<Direccion> direcciones, MyArrayList<Recordatorio> recordatorios, ContactoAsociado contactoAsociado, LinkedListCircular<SocialMedia> redes) {
+    public Contacto(String nombres, String apellidos, String numero, MyArrayList<Correo> correos, LinkedListCircular<Foto> fotos, MyArrayList<Direccion> direcciones, MyArrayList<Recordatorio> recordatorios, ContactoAsociado contactoAsociado, LinkedListCircular<SocialMedia> redes) {
         this.nombres = nombres;
         this.apellidos = apellidos;
-        this.numero = numero;
+        this.numero = new LinkedListCircular<>();
+        this.numero.add(new Numero(numero));
         this.correos = correos;
         this.fotos = fotos;
         this.direcciones = direcciones;
@@ -248,8 +249,7 @@ public class Contacto implements Serializable, Comparable<Contacto>{
         if (contactos.get(i).getNombres().equals(contactoModificado.getNombres()) && contactos.get(i).getApellidos().equals(contactoModificado.getApellidos())) { 
             // Realizar las modificaciones necesarias
             contactos.get(i).setFavorito(contactoModificado.isFavorito()); 
-
-            break;
+           break;
         }
     }
     

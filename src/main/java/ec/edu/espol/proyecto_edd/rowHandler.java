@@ -43,7 +43,7 @@ public interface rowHandler {
 
     }
     
-            default void addImageViewToVbox(VBox vbox, ImageView originalImageView, Image nuevaImagen){
+     default void addImageViewToVbox(VBox vbox, ImageView originalImageView, Image nuevaImagen){
         ImageView clonedImageView = new ImageView(nuevaImagen);
 
         // Copiar algunas propiedades visuales del ImageView original al clonado
