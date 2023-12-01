@@ -9,8 +9,8 @@ import java.io.IOException;
 import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.StandardCopyOption;
-import java.util.ArrayList;
-import java.util.LinkedList;
+import TDA.MyArrayList;
+import TDA.LinkedListCircular;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -98,23 +98,23 @@ public class EditContactController implements Initializable {
             a.show();
         }else
         {
-            ArrayList<Contacto> contactos = Contacto.readListFromFileSer();
+            MyArrayList<Contacto> contactos = Contacto.readListFromFileSer();
             
-            for(Contacto userInList: contactos)
-            {
-                if(userInList.getNumero().equals(numbertext.getText()))
-                {
-                    Alert a  = new Alert(Alert.AlertType.ERROR, "This number already exits");
-                     a.show();                                        
+            for (int i = 0; i < contactos.size(); i++) {
+                Contacto userInList = contactos.get(i);
+                if (userInList.getNumero().equals(numbertext.getText())) {
+                    Alert a = new Alert(Alert.AlertType.ERROR, "This number already exists");
+                    a.show();
                     break;
                 }
             }
+
             //creando el usuario 
-        ArrayList<Correo> correosAgregar = new ArrayList<>();
+        MyArrayList<Correo> correosAgregar = new MyArrayList<>();
         Correo correo = new Correo("Personal",emailtext.getText());
         correosAgregar.add(correo);
         
-        ArrayList<Direccion> direccionAgregar = new ArrayList<>();
+        MyArrayList<Direccion> direccionAgregar = new MyArrayList<>();
         Direccion direccion = new Direccion("Hogar",directiontext.getText());
         direccionAgregar.add(direccion);
         
@@ -122,13 +122,13 @@ public class EditContactController implements Initializable {
 
         ContactoAsociado contAsoc = new ContactoAsociado("","");
         
-        ArrayList<Recordatorio> recordatorios = new ArrayList<>();
+        MyArrayList<Recordatorio> recordatorios = new MyArrayList<>();
         Recordatorio recor = new Recordatorio(datetext1.getText()," ");
         recordatorios.add(recor);
         
         
         //Agregar Imagenes
-        LinkedList<Foto> fotos = new LinkedList<Foto>();
+        LinkedListCircular<Foto> fotos = new LinkedListCircular<Foto>();
         
         //falta validar que no este vacia la foto
         Foto fotoAgregar = new Foto(urlImagen);
@@ -191,7 +191,7 @@ public class EditContactController implements Initializable {
             }
             
             
-            //Agregar contacto a la linkedList de usuario
+            //Agregar contacto a la LinkedListCircular de usuario
         }
     }
     

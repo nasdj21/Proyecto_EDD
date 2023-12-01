@@ -4,14 +4,15 @@
  */
 package ec.edu.espol.proyecto_edd;
 
+import TDA.LinkedListCircular;
+import TDA.MyArrayList;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.LinkedList;
+import TDA.LinkedListCircular;
 
 /**
  *
@@ -20,14 +21,17 @@ import java.util.LinkedList;
 public class Contacto implements Serializable{
     private String nombres;
     private String apellidos;
-    private String numero;
-    private ArrayList<Correo> correos;
-    private LinkedList<Foto> fotos;
-    private ArrayList<Direccion> direcciones;
-    private ArrayList<Recordatorio> recordatorios;
+    private LinkedListCircular<Numero> numero;
+    private MyArrayList<Correo> correos;
+    private LinkedListCircular<Foto> fotos;
+    private MyArrayList<Direccion> direcciones;
+    private MyArrayList<Recordatorio> recordatorios;
     private ContactoAsociado contactoAsociado;
+    private LinkedListCircular<SocialMedia>redes;
+    private boolean favorito;
+    private String etiqueta;
 
-    public Contacto(String nombres, String apellidos, String numero, ArrayList<Correo> correos, LinkedList<Foto> fotos, ArrayList<Direccion> direcciones, ArrayList<Recordatorio> recordatorios, ContactoAsociado contactoAsociado) {
+    public Contacto(String nombres, String apellidos, LinkedListCircular<Numero> numero, MyArrayList<Correo> correos, LinkedListCircular<Foto> fotos, MyArrayList<Direccion> direcciones, MyArrayList<Recordatorio> recordatorios, ContactoAsociado contactoAsociado, LinkedListCircular<SocialMedia> redes, String etiqueta) {
         this.nombres = nombres;
         this.apellidos = apellidos;
         this.numero = numero;
@@ -36,29 +40,73 @@ public class Contacto implements Serializable{
         this.direcciones = direcciones;
         this.recordatorios = recordatorios;
         this.contactoAsociado = contactoAsociado;
+        this.redes = redes;
+        this.favorito = false;
+        this.etiqueta = null;
+    }
+    
+    
+
+    public Contacto(String nombres, String apellidos, LinkedListCircular<Numero> numero, MyArrayList<Correo> correos, LinkedListCircular<Foto> fotos, MyArrayList<Direccion> direcciones, MyArrayList<Recordatorio> recordatorios, ContactoAsociado contactoAsociado, LinkedListCircular<SocialMedia> redes) {
+        this.nombres = nombres;
+        this.apellidos = apellidos;
+        this.numero = numero;
+        this.correos = correos;
+        this.fotos = fotos;
+        this.direcciones = direcciones;
+        this.recordatorios = recordatorios;
+        this.contactoAsociado = contactoAsociado;
+        this.redes = redes;
+        this.favorito = false;
+        this.etiqueta = null;
+    }
+    
+    
+    
+
+    public Contacto(String nombres, String apellidos, String numero, MyArrayList<Correo> correos, LinkedListCircular<Foto> fotos, MyArrayList<Direccion> direcciones, MyArrayList<Recordatorio> recordatorios, ContactoAsociado contactoAsociado) {
+        this.nombres = nombres;
+        this.apellidos = apellidos;
+        this.correos = correos;
+        this.fotos = fotos;
+        this.direcciones = direcciones;
+        this.recordatorios = recordatorios;
+        this.contactoAsociado = contactoAsociado;
+        this.numero = new LinkedListCircular<>();
+        this.numero.add(new Numero(numero));
+        this.redes = new LinkedListCircular<>();
+        this.favorito = false;
+        this.etiqueta = null;
     }
 
-    
 
     
     
     public Contacto(String nombres, String apellidos, String numero) {
         this.nombres = nombres;
         this.apellidos = apellidos;
-        this.numero = numero;
-        this.correos = new ArrayList<Correo>();
-        this.fotos = new LinkedList<Foto>();
-        this.direcciones = new ArrayList<Direccion>();
-        this.recordatorios = new ArrayList<Recordatorio>();
+        this.numero = new LinkedListCircular<>();
+        this.numero.add(new Numero(numero));
+        this.correos = new MyArrayList<>();
+        this.fotos = new LinkedListCircular<>();
+        this.direcciones = new MyArrayList<>();
+        this.recordatorios = new MyArrayList<>();
+        this.redes = new LinkedListCircular<>();
+        this.favorito = false;
+        this.etiqueta = null;
     }
     
     public Contacto(String nombres, String numero) {
         this.nombres = nombres;
-        this.numero = numero;
-        this.correos = new ArrayList<Correo>();
-        this.fotos = new LinkedList<Foto>();
-        this.direcciones = new ArrayList<Direccion>();
-        this.recordatorios = new ArrayList<Recordatorio>();
+        this.numero = new LinkedListCircular<>();
+        this.numero.add(new Numero(numero));
+        this.correos = new MyArrayList<>();
+        this.fotos = new LinkedListCircular<>();
+        this.direcciones = new MyArrayList<>();
+        this.recordatorios = new MyArrayList<>();
+        this.redes = new LinkedListCircular<>();
+        this.favorito = false;
+        this.etiqueta = null;
     }
 
     
@@ -80,43 +128,45 @@ public class Contacto implements Serializable{
         this.apellidos = apellidos;
     }
 
-    public String getNumero() {
+    public LinkedListCircular<Numero> getNumero() {
         return numero;
     }
 
-    public void setNumero(String numero) {
+    public void setNumero(LinkedListCircular<Numero> numero) {
         this.numero = numero;
     }
 
-    public ArrayList<Correo> getCorreos() {
+    
+
+    public MyArrayList<Correo> getCorreos() {
         return correos;
     }
 
-    public void setCorreos(ArrayList<Correo> correos) {
+    public void setCorreos(MyArrayList<Correo> correos) {
         this.correos = correos;
     }
 
-    public LinkedList<Foto> getFotos() {
+    public LinkedListCircular<Foto> getFotos() {
         return fotos;
     }
 
-    public void setFotos(LinkedList<Foto> fotos) {
+    public void setFotos(LinkedListCircular<Foto> fotos) {
         this.fotos = fotos;
     }
 
-    public ArrayList<Direccion> getDirecciones() {
+    public MyArrayList<Direccion> getDirecciones() {
         return direcciones;
     }
 
-    public void setDirecciones(ArrayList<Direccion> direcciones) {
+    public void setDirecciones(MyArrayList<Direccion> direcciones) {
         this.direcciones = direcciones;
     }
 
-    public ArrayList<Recordatorio> getRecordatorios() {
+    public MyArrayList<Recordatorio> getRecordatorios() {
         return recordatorios;
     }
 
-    public void setRecordatorios(ArrayList<Recordatorio> recordatorios) {
+    public void setRecordatorios(MyArrayList<Recordatorio> recordatorios) {
         this.recordatorios = recordatorios;
     }
 
@@ -127,13 +177,41 @@ public class Contacto implements Serializable{
     public void setContactoAsociado(ContactoAsociado contactoAsociado) {
         this.contactoAsociado = contactoAsociado;
     }
+
+    public LinkedListCircular<SocialMedia> getRedes() {
+        return redes;
+    }
+
+    public void setRedes(LinkedListCircular<SocialMedia> redes) {
+        this.redes = redes;
+    }
+
+    public boolean isFavorito() {
+        return favorito;
+    }
+
+    public void setFavorito(boolean favorito) {
+        this.favorito = favorito;
+    }
+
+    public String getEtiqueta() {
+        return etiqueta;
+    }
+
+    public void setEtiqueta(String etiqueta) {
+        this.etiqueta = etiqueta;
+    }
+    
+    
+    
+    
     
     
 
-    public static ArrayList<Contacto> readListFromFileSer() {
-        ArrayList<Contacto> contactos = new ArrayList<>();
+    public static MyArrayList<Contacto> readListFromFileSer() {
+        MyArrayList<Contacto> contactos = new MyArrayList<>();
         try (ObjectInputStream in = new ObjectInputStream(new FileInputStream("contactos.ser"))) {
-            contactos = (ArrayList<Contacto>) in.readObject();
+            contactos = (MyArrayList<Contacto>) in.readObject();
         } catch (IOException | ClassNotFoundException e) {
             System.out.println("Error al leer el archivo de contacto: " + e.getMessage());
         }
@@ -141,7 +219,7 @@ public class Contacto implements Serializable{
     }
    
     public void saveSer(){
-        ArrayList<Contacto>contactos = Contacto.readListFromFileSer();
+        MyArrayList<Contacto>contactos = Contacto.readListFromFileSer();
         contactos.add(this);
         try(ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("contactos.ser"))){
             out.writeObject(contactos);
@@ -149,19 +227,33 @@ public class Contacto implements Serializable{
         catch(IOException e){
             System.out.println("Error al guardar el archivo de contacto: " + e.getMessage());
             
-        }
-        
-        
+        }   
     }
+    
+    public static void saveSer(MyArrayList<Contacto>contactos){
+        try(ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("contactos.ser"))){
+            out.writeObject(contactos);
+        }
+        catch(IOException e){
+            System.out.println("Error al guardar el archivo de contacto: " + e.getMessage());
+            
+        }   
+    }
+    
+    public static void actualizarContacto(Contacto contactoModificado) {
+    MyArrayList<Contacto> contactos = Contacto.readListFromFileSer();
 
+    // Buscar el contacto en la lista
+    for (int i = 0; i < contactos.size(); i++) {
+        if (contactos.get(i).getNombres().equals(contactoModificado.getNombres()) && contactos.get(i).getApellidos().equals(contactoModificado.getApellidos())) { 
+            // Realizar las modificaciones necesarias
+            contactos.get(i).setFavorito(contactoModificado.isFavorito()); 
+
+            break;
+        }
+    }
     
-    
-    
-    
+    Contacto.saveSer(contactos);
+    }
    
-
-    
-    
-    
-    
 }

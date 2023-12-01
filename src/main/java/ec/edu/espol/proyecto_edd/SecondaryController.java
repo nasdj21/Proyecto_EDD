@@ -3,8 +3,8 @@ package ec.edu.espol.proyecto_edd;
 import ec.edu.espol.proyecto_edd.Contacto;
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.LinkedList;
+import TDA.MyArrayList;
+import TDA.LinkedListCircular;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -31,10 +31,10 @@ public class SecondaryController implements Initializable {
     @FXML
     private Button crearContactoButton;
     
-    private ArrayList<Contacto>contactos;
+    private MyArrayList<Contacto>contactos;
     
     
-    public void setContactos(ArrayList<Contacto>contactos){
+    public void setContactos(MyArrayList<Contacto>contactos){
         this.contactos = contactos;
     }
     
@@ -47,26 +47,38 @@ public class SecondaryController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        ArrayList<Contacto>contactos1 = Contacto.readListFromFileSer();
-        LinkedList<Foto>lfotosc1 = new LinkedList<>();
-        Foto fotoc11 = new Foto("man");
+        MyArrayList<Contacto>contactos1 = Contacto.readListFromFileSer();
+        if(contactos1.isEmpty()){
+        LinkedListCircular<Foto>lfotosc1 = new LinkedListCircular<>();
+        Foto fotoc11 = new Foto("man.png");
         lfotosc1.add(fotoc11);
         
-        LinkedList<Foto>lfotosc2 = new LinkedList<>();
-        Foto fotoc21 = new Foto("woman");
-        Foto fotoc22 = new Foto("woman2");
+        LinkedListCircular<Foto>lfotosc2 = new LinkedListCircular<>();
+        Foto fotoc21 = new Foto("woman.png");
+        Foto fotoc22 = new Foto("woman2.png");
         lfotosc2.add(fotoc21);
         lfotosc2.add(fotoc22);
         
-        Contacto contacto1 = new Contacto("Juan", "Perez", "123456789", new ArrayList<>(), lfotosc1, new ArrayList<>(), new ArrayList<>(), null);
-
-        Contacto contacto2 = new Contacto("Maria", "Lopez", "987654321", new ArrayList<>(), lfotosc2, new ArrayList<>(), new ArrayList<>(), null);
-
+        //Borrar despues de probar//
+        Correo correo1 = new Correo("personal", "juancorreo@gmail.com");
+        Correo correo2 = new Correo("trabajo", "josql@sdl.com");
+        MyArrayList<Correo>correosJuan = new MyArrayList<>();
+        correosJuan.add(correo1);
+        correosJuan.add(correo2);
+        //Borrar despues de probar//
+        
+        Contacto contacto1 = new Contacto("Juan", "Perez", "123456789", correosJuan, lfotosc1, new MyArrayList<>(), new MyArrayList<>(), null);
+        
+        Contacto contacto2 = new Contacto("Maria", "Lopez", "987654321", new MyArrayList<>(), lfotosc2, new MyArrayList<>(), new MyArrayList<>(), null);
+        
         Contacto contacto3 = new Contacto("Luis", "Rodriguez", "999888777");
         
         contactos1.add(contacto1);
         contactos1.add(contacto2);
         contactos1.add(contacto3);
+        Contacto.saveSer(contactos1);
+        }
+        
         
         mostrar(contactos1);
     }
@@ -74,12 +86,12 @@ public class SecondaryController implements Initializable {
    
 
     
-    public void mostrar(ArrayList<Contacto> contactos){
+    public void mostrar(MyArrayList<Contacto> contactos){
         this.contactos = contactos;
         TableColumn nombreColumn = new TableColumn("Nombre");
         TableColumn apellidoColumn = new TableColumn("Apellido");
         TableColumn numeroColumn = new TableColumn("Numero");
-        ObservableList<Contacto>data = FXCollections.observableArrayList(contactos);
+        ObservableList<Contacto>data = FXCollections.observableMyArrayList(contactos);
         nombreColumn.setCellValueFactory(new PropertyValueFactory<Contacto,String>("nombres"));
         apellidoColumn.setCellValueFactory(new PropertyValueFactory<Contacto,String>("apellidos"));
         numeroColumn.setCellValueFactory(new PropertyValueFactory<Contacto,String>("numero"));
@@ -129,7 +141,6 @@ public class SecondaryController implements Initializable {
             VerContactoController verController = loader.getController();
             
             verController.show(table.getSelectionModel().getSelectedItem());
-            verController.setContactos(contactos);
             verController.setContacto(table.getSelectionModel().getSelectedItem());
             
             Scene scene = new Scene(root);

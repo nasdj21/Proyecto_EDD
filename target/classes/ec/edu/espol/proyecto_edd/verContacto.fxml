@@ -2,196 +2,213 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ButtonBar?>
-<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
 <ScrollPane hbarPolicy="NEVER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="999.0" prefWidth="595.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ec.edu.espol.proyecto_edd.VerContactoController">
 
    <content>
-      <BorderPane prefHeight="995.0" prefWidth="595.0" style="-fx-background-color: #010001;">
-         <center>
-            <GridPane prefHeight="772.0" prefWidth="595.0" BorderPane.alignment="CENTER">
-               <columnConstraints>
-                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="375.0" minWidth="10.0" prefWidth="180.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="400.0" minWidth="10.0" prefWidth="254.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="181.0" minWidth="10.0" prefWidth="181.0" />
-               </columnConstraints>
-               <rowConstraints>
-                  <RowConstraints minHeight="10.0" vgrow="ALWAYS" />
-                  <RowConstraints maxHeight="66.0" minHeight="10.0" prefHeight="66.0" vgrow="ALWAYS" />
-                  <RowConstraints maxHeight="66.0" minHeight="10.0" prefHeight="66.0" vgrow="ALWAYS" />
-                  <RowConstraints maxHeight="66.0" minHeight="10.0" prefHeight="66.0" vgrow="ALWAYS" />
-                  <RowConstraints maxHeight="66.0" minHeight="10.0" prefHeight="66.0" vgrow="ALWAYS" />
-                  <RowConstraints maxHeight="66.0" minHeight="10.0" prefHeight="66.0" vgrow="ALWAYS" />
-                  <RowConstraints maxHeight="66.0" minHeight="10.0" prefHeight="66.0" vgrow="ALWAYS" />
-                  <RowConstraints maxHeight="66.0" minHeight="10.0" prefHeight="66.0" vgrow="ALWAYS" />
-               </rowConstraints>
+      <BorderPane prefHeight="995.0" prefWidth="595.0" style="-fx-background-color: #1E2022;">
+         <top>
+            <VBox alignment="CENTER" maxHeight="-Infinity" prefHeight="212.0" prefWidth="595.0" spacing="3.0" BorderPane.alignment="CENTER">
                <children>
-                  <Label text="Name" textFill="#f2e5e5" GridPane.halignment="LEFT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.vgrow="ALWAYS">
+                  <ImageView fx:id="imageId" fitHeight="150.0" fitWidth="200.0" onMouseClicked="#watchGalery" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../img/Imagen3.jpg" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="labelContact" alignment="CENTER" lineSpacing="12.0" maxHeight="1.7976931348623157E308" prefHeight="70.0" text="CONTACT" textAlignment="CENTER" textFill="WHITE">
                      <font>
-                        <Font name="Georgia Italic" size="18.0" />
+                        <Font name="Helvetica" size="35.0" />
                      </font>
-                  </Label>
-                  <Label text="Number" textFill="#f2e5e5" GridPane.halignment="LEFT" GridPane.rowIndex="4">
-                     <font>
-                        <Font name="Georgia Italic" size="18.0" />
-                     </font>
-                  </Label>
-                  <Label text="Important Date" textFill="#f2e5e5" GridPane.halignment="LEFT" GridPane.rowIndex="6">
-                     <font>
-                        <Font name="Georgia Italic" size="18.0" />
-                     </font>
-                     <GridPane.margin>
-                        <Insets />
-                     </GridPane.margin>
-                  </Label>
-                  <Label text="Lastname" textFill="#f2e5e5" GridPane.halignment="LEFT" GridPane.rowIndex="2">
-                     <font>
-                        <Font name="Georgia Italic" size="18.0" />
-                     </font>
-                  </Label>
-                  <Label text="Email" textFill="#f2e5e5" GridPane.halignment="LEFT" GridPane.rowIndex="3">
-                     <font>
-                        <Font name="Georgia Italic" size="18.0" />
-                     </font>
-                  </Label>
-                  <Label text="Related Contacts" textFill="#f2e5e5" GridPane.halignment="LEFT" GridPane.rowIndex="7">
-                     <font>
-                        <Font name="Georgia Italic" size="18.0" />
-                     </font>
-                  </Label>
-                  <TextField fx:id="nametext" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="1">
-                     <font>
-                        <Font name="System Bold Italic" size="12.0" />
-                     </font>
-                  </TextField>
-                  <TextField fx:id="lastnametext" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="2">
-                     <font>
-                        <Font name="System Bold Italic" size="12.0" />
-                     </font>
-                  </TextField>
-                  <TextField fx:id="numbertext" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="4">
-                     <font>
-                        <Font name="System Bold Italic" size="12.0" />
-                     </font>
-                  </TextField>
-                  <TextField fx:id="emailtext" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="3">
-                     <font>
-                        <Font name="System Bold Italic" size="12.0" />
-                     </font>
-                  </TextField>
-                  <Label text="Direction" textFill="#f2e5e5" GridPane.rowIndex="5">
-                     <font>
-                        <Font name="Georgia Italic" size="18.0" />
-                     </font>
-                  </Label>
-                  <TextField fx:id="directiontext" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="5">
-                     <font>
-                        <Font name="System Bold Italic" size="12.0" />
-                     </font>
-                  </TextField>
-                  <TextField fx:id="datetext1" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="6">
-                     <font>
-                        <Font name="System Bold Italic" size="12.0" />
-                     </font>
-                  </TextField>
-                  <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1">
-                     <children>
-                        <ImageView fx:id="imageId" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" VBox.vgrow="NEVER">
-                           <VBox.margin>
-                              <Insets bottom="20.0" />
-                           </VBox.margin>
-                           <image>
-                              <Image url="@../../../../img/Imagen3.jpg" />
-                           </image>
-                        </ImageView>
-                        <Button fx:id="watchgalleryButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#watchGalery" prefHeight="44.0" prefWidth="183.0" style="-fx-background-color: #9A031E;" text="Watch Gallery" textAlignment="CENTER" textFill="#fcdc4d">
-                           <font>
-                              <Font name="Baskerville Old Face" size="24.0" />
-                           </font>
-                        </Button>
-                     </children>
-                  </VBox>
-                  <ComboBox fx:id="relatedcontacts" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="7" />
-                  <Label fx:id="mailLabel" textFill="WHITE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
-                     <font>
-                        <Font size="16.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="numberLabel" textFill="WHITE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="4">
-                     <font>
-                        <Font size="16.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="directionLabel" textFill="WHITE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="5">
-                     <font>
-                        <Font size="16.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="dateLabel" textFill="WHITE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="6">
-                     <font>
-                        <Font size="16.0" />
-                     </font>
+                     <padding>
+                        <Insets bottom="10.0" right="10.0" top="10.0" />
+                     </padding>
                   </Label>
                </children>
-               <padding>
-                  <Insets left="20.0" />
-               </padding>
+            </VBox>
+         </top>
+         <center>
+            <GridPane fx:id="centerGrid" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="659.0" prefWidth="536.0" BorderPane.alignment="CENTER">
+              <columnConstraints>
+                <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints maxHeight="378.0" minHeight="10.0" prefHeight="371.0" vgrow="ALWAYS" />
+                <RowConstraints maxHeight="285.0" minHeight="10.0" prefHeight="22.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="300.0" minHeight="10.0" prefHeight="238.0" vgrow="ALWAYS" />
+              </rowConstraints>
+               <children>
+                  <TitledPane fx:id="contactInfoTitlePane" alignment="TOP_LEFT" animated="false" prefHeight="399.0" prefWidth="536.0" text="Contact info">
+                     <content>
+                        <GridPane fx:id="infoGrid" style="-fx-background-color: #363A3C;">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="166.0" minWidth="49.0" prefWidth="49.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="340.0" minWidth="10.0" prefWidth="329.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <ImageView fx:id="telefonoImagen" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                                 <image>
+                                    <Image url="@../../../../img/icons8-google-mobile-50.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fx:id="correoImagen" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+                              <ImageView fx:id="direccionImagen" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+                              <VBox fx:id="telefonoVbox" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="11.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                                 <children>
+                                    <Label fx:id="numbertext" text="telefono" textFill="WHITE">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                              <VBox fx:id="telefonoLabelVbox" alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="100.0" spacing="11.0" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                                 <children>
+                                    <Label fx:id="numberLabel" text="numberLabel" textFill="WHITE">
+                                       <font>
+                                          <Font name="System Italic" size="14.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                              <VBox fx:id="correoVbox" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="12.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                                 <children>
+                                    <Label fx:id="emailtext" text="correo" textFill="WHITE">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                              <VBox fx:id="correoLabelVbox" alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="100.0" spacing="12.0" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                                 <children>
+                                    <Label fx:id="mailLabel" text="mailLabel" textFill="WHITE">
+                                       <font>
+                                          <Font name="System Italic" size="14.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                              <VBox fx:id="direccionVbox" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="12.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+                                 <children>
+                                    <Label fx:id="directiontext" text="direccion" textFill="WHITE">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                              <VBox fx:id="direccionLabelVbox" alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="100.0" spacing="12.0" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+                                 <children>
+                                    <Label fx:id="directionLabel" text="directionLabel" textFill="WHITE">
+                                       <font>
+                                          <Font name="System Italic" size="14.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </GridPane>
+                     </content>
+                  </TitledPane>
+                  <TitledPane fx:id="aboutTitlePane" animated="false" prefHeight="312.0" prefWidth="536.0" style="-fx-background-color: #363A3C;" text="About" GridPane.rowIndex="2">
+                     <content>
+                        <GridPane fx:id="aboutGrid" prefHeight="235.0" prefWidth="534.0" style="-fx-background-color: #363A3C;">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="67.0" minWidth="49.0" prefWidth="56.0" />
+                            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="482.0" minWidth="10.0" prefWidth="336.0" />
+                              <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="448.0" minWidth="10.0" prefWidth="120.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints maxHeight="67.0" minHeight="25.0" prefHeight="36.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="100.0" minHeight="30.0" prefHeight="80.0" vgrow="SOMETIMES" />
+                            <RowConstraints maxHeight="100.0" minHeight="30.0" prefHeight="88.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <ImageView fx:id="asociadoImagen" fitHeight="34.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                              <ImageView fx:id="otrosImagen" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+                              <Label fx:id="asociadoTexto" text="contacto_asociado" textFill="WHITE" GridPane.columnIndex="1">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <VBox fx:id="recordatorioVbox" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="12.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+                                 <children>
+                                    <Label fx:id="otrosText" text="recordatorio_random" textFill="WHITE">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                              <VBox fx:id="redSocialLabelVbox" alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="100.0" spacing="12.0" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+                                 <children>
+                                    <Label fx:id="redSocialLabel" text="redSocialLabel" textFill="WHITE">
+                                       <font>
+                                          <Font name="System Italic" size="14.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                              <VBox fx:id="recordatorioVbox" alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="100.0" spacing="12.0" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+                                 <children>
+                                    <Label fx:id="recordatorioLabel" text="recordatorioLabel" textFill="WHITE">
+                                       <font>
+                                          <Font name="System Italic" size="14.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                              <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="12.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                                 <children>
+                                    <Label fx:id="redSocialText" text="red_social" textFill="WHITE">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                              <ImageView fx:id="redSocialImagen" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+                           </children>
+                        </GridPane>
+                     </content>
+                  </TitledPane>
+               </children>
             </GridPane>
          </center>
-         <top>
-            <Label prefHeight="70.0" prefWidth="226.0" text="CONTACT" textAlignment="CENTER" textFill="#fcdc4d" BorderPane.alignment="CENTER">
-               <font>
-                  <Font name="Goudy Old Style" size="43.0" />
-               </font>
-               <padding>
-                  <Insets bottom="10.0" right="10.0" top="10.0" />
-               </padding>
-               <BorderPane.margin>
-                  <Insets top="20.0" />
-               </BorderPane.margin>
-            </Label>
-         </top>
          <bottom>
-            <VBox alignment="CENTER" prefHeight="58.0" prefWidth="583.0" BorderPane.alignment="CENTER">
+            <HBox alignment="CENTER" prefHeight="47.0" prefWidth="595.0" spacing="45.0" BorderPane.alignment="CENTER">
                <children>
-                  <ButtonBar prefHeight="44.0" prefWidth="551.0">
-                     <buttons>
-                        <Button fx:id="editButton" alignment="CENTER" mnemonicParsing="false" onMouseClicked="#editContact" prefHeight="44.0" prefWidth="370.0" style="-fx-background-color: #9A031E;" text="Edit" textAlignment="CENTER" textFill="#fcdc4d">
-                           <font>
-                              <Font name="Baskerville Old Face" size="24.0" />
-                           </font>
-                        </Button>
-                        <Button fx:id="backButton" alignment="CENTER" mnemonicParsing="false" onMouseClicked="#back" prefHeight="44.0" prefWidth="197.0" style="-fx-background-color: #9A031E;" text="Back" textAlignment="CENTER" textFill="#fcdc4d">
-                           <font>
-                              <Font name="Baskerville Old Face" size="24.0" />
-                           </font>
-                        </Button>
-                     </buttons>
-                     <VBox.margin>
-                        <Insets />
-                     </VBox.margin>
-                  </ButtonBar>
+                  <Button fx:id="backButton" alignment="CENTER" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#back" prefHeight="42.0" prefWidth="200.0" style="-fx-background-color: #21437A;" text="Back" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font name="Baskerville Old Face" size="24.0" />
+                     </font>
+                  </Button>
+                  <ImageView fx:id="favoriteImageView" fitHeight="50.0" fitWidth="50.0" onMouseClicked="#modificarFavorito" pickOnBounds="true" preserveRatio="true" />
+                  <Button fx:id="editButton" alignment="CENTER" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#editContact" prefHeight="42.0" prefWidth="200.0" style="-fx-background-color: #21437A;" text="Edit" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font name="Baskerville Old Face" size="24.0" />
+                     </font>
+                  </Button>
                </children>
-               <opaqueInsets>
-                  <Insets />
-               </opaqueInsets>
-               <BorderPane.margin>
-                  <Insets />
-               </BorderPane.margin>
-            </VBox>
+            </HBox>
          </bottom>
       </BorderPane>
    </content>

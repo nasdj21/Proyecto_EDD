@@ -8,7 +8,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.LinkedList;
+import TDA.LinkedListCircular;
 
 /**
  * JavaFX App

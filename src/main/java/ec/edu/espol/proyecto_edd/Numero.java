@@ -10,21 +10,28 @@ import java.io.Serializable;
  *
  * @author nicolassierra
  */
-public class Recordatorio implements Serializable {
-    private String info;
+public class Numero implements Serializable{
+    private String numero;
     private String label;
 
-    public Recordatorio(String info, String label) {
-        this.info = info;
+    public Numero(String numero, String label) {
+        this.numero = numero;
         this.label = label;
     }
 
-    public String getInfo() {
-        return info;
+    public Numero(String numero) {
+        this.numero = numero;
+        this.label = "Otro";
+    }
+    
+    
+
+    public String getNumero() {
+        return numero;
     }
 
-    public void setDate(String info) {
-        this.info = info;
+    public void setNumero(String numero) {
+        this.numero = numero;
     }
 
     public String getLabel() {
