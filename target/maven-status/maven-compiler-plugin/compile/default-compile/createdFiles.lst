@@ -1,7 +1,11 @@
+ec/edu/espol/proyecto_edd/PrimaryController.class
+ec/edu/espol/proyecto_edd/Correo.class
 ec/edu/espol/proyecto_edd/ContactoEmpresa.class
 ec/edu/espol/proyecto_edd/SocialMedia.class
 ec/edu/espol/proyecto_edd/rowHandler.class
 ec/edu/espol/proyecto_edd/Recordatorio.class
+ec/edu/espol/proyecto_edd/Foto.class
 ec/edu/espol/proyecto_edd/ContactoAsociado.class
 module-info.class
 ec/edu/espol/proyecto_edd/Numero.class
+ec/edu/espol/proyecto_edd/Direccion.class

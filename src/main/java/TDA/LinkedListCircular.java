@@ -4,6 +4,7 @@
  */
 package TDA;
 
+import java.io.Serializable;
 import java.util.Comparator;
 import java.util.Iterator;
 
@@ -12,7 +13,7 @@ import java.util.Iterator;
  *
  * @author nicolassierra
  */
-public class LinkedListCircular<E> implements List<E> {
+public class LinkedListCircular<E> implements List<E>, Serializable {
 
     private Nodo<E> first;
     private Nodo<E> last;
@@ -20,29 +21,6 @@ public class LinkedListCircular<E> implements List<E> {
 
     
 
-//    private class Iterador implements Iterator<E> {
-//
-//        private int itr = 0;
-//
-//        @Override
-//        public boolean hasNext() {
-//            return itr < size;
-//        }
-//
-//        @Override
-//        public Object next() {
-//            if (!hasNext()) {
-//                throw new NoSuchElementException();
-//            }
-//            Nodo<E> f = first;
-//            for (int i = 0; i < itr; i++) {
-//                f = f.sig;
-//            }
-//            itr++;
-//            return f.contenido;
-//        }
-//
-//    }
 
     @Override
     public int size() {
@@ -142,8 +120,8 @@ public class LinkedListCircular<E> implements List<E> {
 
     @Override
     public E get(int index) {
-//        if (index < 0 || index > size - 1)
-//            throw new ArrayIndexOutOfBoundsException();
+        if (index < 0 || index > size - 1)
+            throw new ArrayIndexOutOfBoundsException();
         Nodo<E> tmp = first;
         if (index > 0) {
             for (int i = 0; i < index; i++) {
@@ -246,6 +224,8 @@ public class LinkedListCircular<E> implements List<E> {
         }
         return -1; 
     }
+    
+    
 
     @Override
     public int lastIndexOf(Object o) {

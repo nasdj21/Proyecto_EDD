@@ -100,9 +100,9 @@ public class EditContactController implements Initializable {
         {
             MyArrayList<Contacto> contactos = Contacto.readListFromFileSer();
             
-            for(Contacto userInList: contactos)
+            for(int i = 0; i < contactos.size(); i++)
             {
-                if(userInList.getNumero().equals(numbertext.getText()))
+                if(contactos.get(i).equals(numbertext.getText()))
                 {
                     Alert a  = new Alert(Alert.AlertType.ERROR, "This number already exits");
                      a.show();                                        

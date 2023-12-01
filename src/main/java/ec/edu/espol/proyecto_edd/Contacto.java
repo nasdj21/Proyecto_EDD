@@ -18,7 +18,7 @@ import TDA.LinkedListCircular;
  *
  * @author nicolassierra
  */
-public class Contacto implements Serializable{
+public class Contacto implements Serializable, Comparable<Contacto>{
     private String nombres;
     private String apellidos;
     private LinkedListCircular<Numero> numero;
@@ -254,6 +254,14 @@ public class Contacto implements Serializable{
     }
     
     Contacto.saveSer(contactos);
+    }
+
+    @Override
+    public int compareTo(Contacto otroContacto) { //El orden natural de los contactos es por su primera letra
+        char primeraLetraThis = this.nombres.toUpperCase().charAt(0); // Obtener la primera letra del nombre actual
+        char primeraLetraOtro = otroContacto.getNombres().toUpperCase().charAt(0); // Obtener la primera letra del nombre del otro contacto
+        
+        return Character.compare(primeraLetraThis, primeraLetraOtro);
     }
    
 }

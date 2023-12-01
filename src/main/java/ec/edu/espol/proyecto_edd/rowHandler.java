@@ -7,6 +7,7 @@ package ec.edu.espol.proyecto_edd;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.control.TitledPane;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.RowConstraints;
@@ -35,10 +36,25 @@ public interface rowHandler {
         clonedLabel.setStyle(originalLabel.getStyle());
         clonedLabel.setFont(originalLabel.getFont());
         clonedLabel.setTextFill(originalLabel.getTextFill());
+        clonedLabel.setEventDispatcher(originalLabel.getEventDispatcher());
         
         // Agregar el label clonado al VBox
         vbox.getChildren().add(clonedLabel);
 
     }
+    
+            default void addImageViewToVbox(VBox vbox, ImageView originalImageView, Image nuevaImagen){
+        ImageView clonedImageView = new ImageView(nuevaImagen);
+
+        // Copiar algunas propiedades visuales del ImageView original al clonado
+        clonedImageView.setFitWidth(originalImageView.getFitWidth());
+        clonedImageView.setFitHeight(originalImageView.getFitHeight());
+        clonedImageView.setPreserveRatio(originalImageView.isPreserveRatio());
+        clonedImageView.setSmooth(originalImageView.isSmooth());
+
+
+        // Agregar el ImageView clonado al VBox
+        vbox.getChildren().add(clonedImageView);
+}
     
 }

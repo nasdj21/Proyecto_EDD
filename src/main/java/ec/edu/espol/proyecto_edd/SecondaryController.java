@@ -5,38 +5,59 @@ import java.io.IOException;
 import java.net.URL;
 import TDA.MyArrayList;
 import TDA.LinkedListCircular;
+import java.util.Comparator;
+import java.util.PriorityQueue;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.input.PickResult;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-public class SecondaryController implements Initializable {
+public class SecondaryController implements Initializable, rowHandler, contactFinder{
 
-    @FXML
-    private TableView<Contacto> table;
-    @FXML
-    private Button filtrarButton;
-    @FXML
-    private Button ordenarButton;
+    
     @FXML
     private Button crearContactoButton;
     
-    private MyArrayList<Contacto>contactos;
+    private MyArrayList<Contacto>contactos = Contacto.readListFromFileSer();
+    private MyArrayList<Contacto>contactosMostrados;
+    
+    @FXML
+    private ComboBox<?> ordenarComboBox;
+    @FXML
+    private ImageView favoritoFoto;
+    @FXML
+    private ImageView contactFoto;
+    @FXML
+    private Label nombres;
+    @FXML
+    private VBox favoritoVbox;
+    @FXML
+    private VBox fotoVbox;
+    @FXML
+    private VBox nombresVbox;
+    
+    Image imgFavorito = new Image("/img/estrellaLLena.png");
+    Image imgNoFavorito = new Image("/img/estrellaVacia.png");
     
     
-    public void setContactos(MyArrayList<Contacto>contactos){
-        this.contactos = contactos;
-    }
+
     
     
      
@@ -87,29 +108,60 @@ public class SecondaryController implements Initializable {
 
     
     public void mostrar(MyArrayList<Contacto> contactos){
-        this.contactos = contactos;
-        TableColumn nombreColumn = new TableColumn("Nombre");
-        TableColumn apellidoColumn = new TableColumn("Apellido");
-        TableColumn numeroColumn = new TableColumn("Numero");
-        ObservableList<Contacto>data = FXCollections.observableMyArrayList(contactos);
-        nombreColumn.setCellValueFactory(new PropertyValueFactory<Contacto,String>("nombres"));
-        apellidoColumn.setCellValueFactory(new PropertyValueFactory<Contacto,String>("apellidos"));
-        numeroColumn.setCellValueFactory(new PropertyValueFactory<Contacto,String>("numero"));
         
-        table.getColumns().addAll(nombreColumn, apellidoColumn, numeroColumn);
-        table.setItems(data);
-        table.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY); 
+        if(contactos.isEmpty()){
+            nombres.setText("");
+        }else{
+            
+            Comparator<Contacto> cmp = (Contacto contacto1, Contacto contacto2) -> {
+                if (contacto1.isFavorito() && !contacto2.isFavorito()) {
+                    return -1; // contacto1 favorito, contacto2 no favorito, contacto1 va antes
+                } else if (!contacto1.isFavorito() && contacto2.isFavorito()) {
+                    return 1; // contacto2 favorito, contacto1 no favorito, contacto2 va antes
+                } else {
+                    // Si ambos son favoritos o no favoritos, ordena por la primera letra del nombre
+                    return contacto1.compareTo(contacto2);
+                }
+                
+            };
+            
+            PriorityQueue<Contacto> ordenamiento = new PriorityQueue<>(cmp);
+            for(int i = 0; i < contactos.size(); i++){
+                ordenamiento.add(contactos.get(i));
+            }
+            
+            
+            
+            Contacto c0 = ordenamiento.poll();
+          
+            nombres.setText(c0.getNombres()); 
+            contactFoto.setImage(new Image("/img/"+c0.getNombres().toUpperCase().charAt(0)+".png"));
+            
+            
+            if(c0.isFavorito())
+                favoritoFoto.setImage(imgFavorito);
+            else
+                favoritoFoto.setImage(imgNoFavorito);
+            
+            while(!ordenamiento.isEmpty()){
+                Contacto c = ordenamiento.poll();
+                Image imgC = new Image("/img/"+c.getNombres().toUpperCase().charAt(0)+".png");
+                
+                addLabelToVbox(nombresVbox, nombres, c.getNombres());
+                
+                
+                addImageViewToVbox(fotoVbox, contactFoto, imgC);
+                if(c.isFavorito())
+                    addImageViewToVbox(favoritoVbox, favoritoFoto, imgFavorito);
+                else
+                    addImageViewToVbox(favoritoVbox, favoritoFoto, imgNoFavorito);
+                
+            }
+        }
         
     }
     
 
-    @FXML
-    private void filtrar(MouseEvent event) {
-    }
-
-    @FXML
-    private void ordenar(MouseEvent event) {
-    }
 
     @FXML
     private void crearContacto(MouseEvent event) {
@@ -134,23 +186,34 @@ public class SecondaryController implements Initializable {
 
     @FXML
     private void verContacto(MouseEvent event) {
-        try{
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/ec/edu/espol/proyecto_EDD/verContacto.fxml"));
-            Parent root = loader.load();
-            
-            VerContactoController verController = loader.getController();
-            
-            verController.show(table.getSelectionModel().getSelectedItem());
-            verController.setContacto(table.getSelectionModel().getSelectedItem());
-            
-            Scene scene = new Scene(root);
-            Stage stage = (Stage) filtrarButton.getScene().getWindow(); 
-            stage.setScene(scene);
-            stage.show();
-            
-        }catch(IOException e) {
-            e.printStackTrace();
-        }
+        PickResult pickResult = event.getPickResult();
+        Node nodoSeleccionado = pickResult.getIntersectedNode();
+        System.out.println("Entro verContacto");
+        System.out.println(nodoSeleccionado.getClass());
+        
+        if (nodoSeleccionado.getParent() instanceof Label) {
+        Label labelPadre = (Label) nodoSeleccionado.getParent();
+        String nombreContacto = labelPadre.getText();
+        Contacto contactoSeleccionado = encontrarContactoPorNombre(nombreContacto, contactos);
+        System.out.println("Entro al if");
+
+            try{
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/ec/edu/espol/proyecto_EDD/verContacto.fxml"));
+                Parent root = loader.load();
+
+                VerContactoController verController = loader.getController();
+
+                verController.show(contactoSeleccionado);
+                verController.setContacto(contactoSeleccionado);
+                Scene scene = new Scene(root);
+                Stage stage = (Stage) crearContactoButton.getScene().getWindow(); 
+                stage.setScene(scene);
+                stage.show();
+
+            }catch(IOException e) {
+                e.printStackTrace();
+            }
+       }
     }
     
     

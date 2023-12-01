@@ -4,11 +4,13 @@
  */
 package TDA;
 
+import java.io.Serializable;
+
 /**
  *
  * @author nicolassierra
  */
-public class Nodo<E> {
+public class Nodo<E> implements Serializable{
 
         private E contenido;
         private Nodo<E> sig;

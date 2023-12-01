@@ -61,26 +61,18 @@ public class MostrarGaleríaController implements Initializable {
 
     @FXML
     private void prev(MouseEvent event) {
-        if (fotos.size() > 1) {
-            indiceActual = (indiceActual - 1 + fotos.size()) % fotos.size();
-            mostrarImagenActual();
-        }else{
-            Alert alerta = new Alert(Alert.AlertType.WARNING, "Estas en la primera imagen");
-            alerta.show();
-        }
+        indiceActual = (indiceActual - 1 + fotos.size()) % fotos.size();
+        mostrarImagenActual();
+        
     }
 
     
 
     @FXML
     private void next(MouseEvent event) {
-        if (fotos.size() > 1) {
-            indiceActual = (indiceActual + 1) % fotos.size();
-            mostrarImagenActual();
-        }else{
-            Alert alerta = new Alert(Alert.AlertType.WARNING, "No hay más imagenes");
-            alerta.show();
-        }
+        indiceActual = (indiceActual + 1) % fotos.size();
+        mostrarImagenActual();
+        
     }
     
     public void presentar(LinkedListCircular<Foto>fotos){

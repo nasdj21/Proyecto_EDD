@@ -1,6 +1,7 @@
 package TDA;
 
 
+import java.io.Serializable;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.Iterator;
@@ -15,7 +16,7 @@ import java.util.NoSuchElementException;
  *
  * @author nicolassierra
  */
-public class MyArrayList<E> implements List<E> {
+public class MyArrayList<E> implements List<E>, Serializable {
     private E[] elementos;
     private int size;
     private int capacidad = 50;
